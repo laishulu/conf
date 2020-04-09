@@ -1,0 +1,23 @@
+[core]
+	editor = nvim
+	quotepath = false
+[color]
+	ui = true
+[merge]
+	tool = fugitive
+[push]
+	default = simple
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[mergetool]
+	prompt = false
+[mergetool "fugitive"]
+	cmd = nvim -c \"Gdiff\" \"$MERGED\"
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+        ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"

@@ -1,0 +1,69 @@
+[[plugins]]
+# narrow region: focussing on a selected region
+# select the region, call :NR
+repo = 'chrisbra/nrrwrgn'
+on_cmd = 'NR'
+
+[[plugins]]
+# alignment. :EasyAlign
+repo = 'junegunn/vim-easy-align'
+on_cmd = 'EasyAlign'
+hook_add = '''
+" Interactive EasyAlign in visual mode (e.g. `vip` then `ga=`)
+xmap ga <Plug>(EasyAlign)
+" Interactive EasyAlign for a motion/text object (e.g. `ga` then `ip2=`)
+nmap ga <Plug>(EasyAlign)
+
+" = Around the 1st occurrences of =
+" 2= Around the 2nd occurrences of =
+" *= Around all occurrences of =
+" **= Left/Right alternating alignment around all occurrences of =
+" <Enter> Switching between left/right/center alignment modes of =
+'''
+
+[[plugins]]
+# vim script
+repo = 'tpope/vim-scriptease'
+on_ft = ['vim']
+hook_add = '''
+au! BufNewFile,BufRead .*vim* set filetype=vim
+'''
+
+[[plugins]]
+# nerdtree: A tree explorer plugin for vim.
+repo = 'scrooloose/nerdtree'
+on_cmd = 'NERDTreeToggle'
+hook_add = '''
+nnoremap <silent> <leader>tt :<C-u>NERDTreeToggle<CR>
+'''
+hook_source = '''
+let g:NERDTreeWinSize = 30
+let g:NERDTreeMapMenu='M'
+let NERDTreeIgnore = ['\.pyc$', '\.o$']
+'''
+
+[[plugins]]
+# tagbar
+repo = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
+hook_add = '''
+" open and close MBE
+nnoremap <silent> <leader>tg :<C-u>TagbarToggle<CR>
+'''
+hook_source = '''
+  let g:tagbar_width = 30
+'''
+
+[[plugins]]
+# visualize your Vim undo tree
+repo = 'sjl/gundo.vim'
+on_cmd = 'GundoToggle'
+hook_add = '''
+nnoremap <silent> <leader>tu :<C-u>GundoToggle<CR>
+'''
+
+
+[[plugins]]
+# :Rg <string|pattern>
+repo = 'jremmen/vim-ripgrep'
+on_cmd = 'Rg'

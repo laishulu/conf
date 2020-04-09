@@ -1,0 +1,3 @@
+[submodule "macos/optional"]
+	path = macos/optional
+	url = https://github.com/laishulu/conf-macos-optional.git

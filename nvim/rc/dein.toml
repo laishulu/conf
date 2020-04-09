@@ -1,0 +1,479 @@
+[[plugins]]
+# load .lvimrc up to the root directory
+repo = 'embear/vim-localvimrc'
+
+[[plugins]]
+# git support
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+" [g to diffget target branch(left)
+nnoremap <silent> [g :<C-u>diffget //2<CR> :<C-u>diffupdate<CR>
+" ]g to diffget merge branch(right)
+nnoremap <silent> ]g :<C-u>diffget //3<CR> :<C-u>diffupdate<CR>
+'''
+
+[[plugins]]
+# buffer delete and navigate for each window
+repo = 'vim-scripts/bufkill.vim'
+hook_add = '''
+" buffer is hidden instead of unloaded when it is abandoned
+set hidden
+
+" buffer refresh(r: refresh)
+nnoremap <silent> <leader>br :<C-u>e!<CR>
+
+" other buffer navigate keymap
+" buffer swith(s: switch)
+nnoremap <silent> <leader>bs :<C-u>buffer #<CR>
+" buffer delete(d: delete)
+nnoremap <silent> <leader>bd :<C-u>BD<CR>
+'''
+
+# Start color scheme ----------------------------------------------------------
+[[plugins]]
+# color schema with best compatibility
+repo = 'phanviet/vim-monokai-pro'
+hook_add = '''
+let g:rehash256 = 1
+set background=dark
+highlight ColorColumn ctermbg=48 guibg=#303030
+'''
+hook_post_source = '''
+if has('nvim') && has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
+  let &t_8b = "\<Esc>[38:2:%lu:%lu:%lum"
+  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+  set termguicolors
+  colorscheme monokai_pro
+  " as learn from test,
+  " should set after colorscheme cmd
+  set background=dark
+else
+  set t_Co=256
+  colorscheme monokai_pro
+endif
+'''
+
+[[plugins]]
+# power status line
+repo = 'itchyny/lightline.vim'
+hook_post_source = '''
+" g:lightline should appear before colorscheme command
+source ~/.config/nvim/rc/lightline.vim
+'''
+
+[[plugins]]
+# monokai-pro theme for lightline
+repo = 'zaayer/lightline-monokai-pro'
+depends = 'zaayer/lightline-monokai-pro'
+
+# End color scheme ------------------------------------------------------------
+
+
+# Start view ------------------------------------------------------------------
+[[plugins]]
+# indent guide, toggle with "IndentLinesToggle"
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+# show git diff via Vim sign column.
+repo = 'mhinz/vim-signify'
+hook_post_source = '''
+" hunk text object
+omap ih <plug>(signify-motion-inner-pending)
+xmap ih <plug>(signify-motion-inner-visual)
+omap ah <plug>(signify-motion-outer-pending)
+xmap ah <plug>(signify-motion-outer-visual)
+'''
+
+[[plugins]]
+repo = 'yonchu/accelerated-smooth-scroll'
+hook_add = '''
+let g:ac_smooth_scroll_du_sleep_time_msec = 15
+let g:ac_smooth_scroll_fb_sleep_time_msec = 15
+'''
+
+[[plugins]]
+# Change cursor in insert mode
+repo = 'jszakmeister/vim-togglecursor'
+hook_add = '''
+" avoid lag when changing cursor
+if !has('nvim')
+  set noesckeys
+endif
+'''
+# End view --------------------------------------------------------------------
+
+
+# start text object------------------------------------------------------------
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+hook_add = '''
+let g:textobj_between_no_default_key_mappings = 1
+'''
+# [h]: hunk, provided by vim-signify
+
+[[plugins]]
+# [b]: block
+repo = 'osyo-manga/vim-textobj-multiblock'
+hook_add = '''
+let g:textobj_multiblock_blocks = [
+\	[ "(", ")" ],
+\	[ "[", "]" ],
+\	[ "{", "}" ],
+\	[ '\$', '\$' ],
+\	[ '<', '>' ],
+\	[ '"', '"', 1 ],
+\	[ "'", "'", 1 ],
+\	[ "_", "_", 1 ],
+\	[ "-", "-" ],
+\	[ "*", "*" ],
+\	[ "#", "#" ],
+\	[ "`", "`" ],
+\	[ "|", "|"],
+\	[ "/", "/"],
+\]
+'''
+hook_post_source = '''
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+xmap ab <Plug>(textobj-multiblock-a)
+xmap ib <Plug>(textobj-multiblock-i)
+'''
+
+[[plugins]]
+# [q]: *nearst* quote
+repo = 'beloglazov/vim-textobj-quotes'
+
+[[plugins]]
+# [j]: *nearst* brace
+repo = 'Julian/vim-textobj-brace'
+
+[[plugins]]
+# [u]: cursor to the next punctuation
+repo = 'beloglazov/vim-textobj-punctuation'
+
+[[plugins]]
+# [,]: argument
+repo = 'sgur/vim-textobj-parameter'
+
+[[plugins]]
+# [v]: variable segment
+repo = 'Julian/vim-textobj-variable-segment'
+
+[[plugins]]
+# [x]: xml attribute
+repo = 'whatyouhide/vim-textobj-xmlattr'
+
+[[plugins]]
+# [l]: current line
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+# [y]: syntax highlighted
+repo = 'kana/vim-textobj-syntax'
+
+[[plugins]]
+# [i]: indented lines
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+# [e]: entire buffer
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+# [f]: function, [c]: class
+repo = 'bps/vim-textobj-python'
+# end text object--------------------------------------------------------------
+
+
+# start edit-------------------------------------------------------------------
+[[plugins]]
+repo = 'kshenoy/vim-signature'
+hook_add = '''
+" toggle, display and navigate marks
+" mx           Toggle mark 'x' and display it in the leftmost column
+" dmx          Remove mark 'x' where x is a-zA-Z
+
+" m,           Place the next available mark
+" m.           If no mark on line, place the next available mark. Otherwise, remove (first) existing mark.
+" m-           Delete all marks from the current line
+" m<Space>     Delete all marks from the current buffer
+" ]`           Jump to next mark
+" [`           Jump to prev mark
+" ]'           Jump to start of next line containing a mark
+" ['           Jump to start of prev line containing a mark
+" `]           Jump by alphabetical order to next mark
+" `[           Jump by alphabetical order to prev mark
+" ']           Jump by alphabetical order to start of next line having a mark
+" '[           Jump by alphabetical order to start of prev line having a mark
+" m/           Open location list and display marks from current buffer
+
+" m[0-9]       Toggle the corresponding marker !@#$%^&*()
+" m<S-[0-9]>   Remove all markers of the same type
+" ]-           Jump to next line having a marker of the same type
+" [-           Jump to prev line having a marker of the same type
+" ]=           Jump to next line having a marker of any type
+" [=           Jump to prev line having a marker of any type
+" m?           Open location list and display markers from current buffer
+" m<BS>        Remove all markers
+'''
+
+[[plugins]]
+# automatic closing of quotes, parenthesis, brackets, etc.
+repo = 'Raimondi/delimitMate'
+
+[[plugins]]
+# Replace text with the contents of a register with "gr":selected, "grr":line
+repo = 'vim-scripts/ReplaceWithRegister'
+
+[[plugins]]
+# [I/A]: blockwise insertion in *visual mode*
+repo = 'kana/vim-niceblock'
+
+[[plugins]]
+# Easy text exchange operator.
+# step1: cx{text object}, cxx: current line, this is the src text
+# step2: in visual mode select dst text
+# step3: X
+# cxc: clear pending
+repo = 'tommcdo/vim-exchange'
+
+[[plugins]]
+# enable repeating supported plugin maps with "."
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+# quoting/parenthesizing with "(c/d/y...)s" and "S" in visual" mode
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+# comment easily
+repo = 'tyru/caw.vim'
+hook_add = '''
+" gci/gcui: line, gcc: toggle
+" gcI/gcuI: insert at the first column
+" gca/gcua: append
+" gcw/gcuw: wrap
+" gcb/gcub: box
+" gco/gcuo: next line
+" gcO/gcuO: prev line
+'''
+
+[[plugins]]
+# pairs of handy bracket mappings: [something, ]something
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+# remove trailing spaces of a line
+repo = 'ntpeters/vim-better-whitespace'
+hook_add = '''
+" enable/disable only highlight
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
+'''
+
+[[plugins]]
+# auto set indent by finding similar file up to the root
+repo = 'tpope/vim-sleuth'
+
+[[plugins]]
+# edit multiple selections simultaneously. <C-n>: select next, <C-p>: unselect, <C-x>: skip
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+# Transition between multiline and single-line code. gS: split, gJ: join
+repo = 'andrewradev/splitjoin.vim'
+
+[[plugins]]
+repo = 'ConradIrwin/vim-bracketed-paste'
+
+[[plugins]]
+# Auto detect CJK and Unicode file encodings :FencAutoDetect, :FencView
+repo = 'mbbill/fencview'
+hook_add = '''
+let g:fencview_autodetect=0
+'''
+
+[[plugins]]
+# make <C-A>/<C-X> add/sub to respect date
+repo = 'tpope/vim-speeddating'
+# end edit---------------------------------------------------------------------
+
+
+# start view/navigate----------------------------------------------------------
+[[plugins]]
+# A plugin of NERDTree showing git status flags.
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+# buffer explorer
+repo = 'techlivezheng/vim-plugin-minibufexpl'
+hook_add = '''
+" open and close MBE
+nnoremap <silent> <leader>tm :<C-u>MBEToggle<CR>
+'''
+# End view/navigate------------------------------------------------------------
+
+
+# start file and directory-----------------------------------------------------
+[[plugins]]
+# visualize your Vim undo tree
+# Vim sugar for the UNIX shell commands that need it the most. Features include:
+# :Unlink: :Remove: :Move: :Chmod: :Mkdir: :Find: :Locate:
+# :Wall: :SudoWrite: :SudoEdit:
+repo = 'tpope/vim-eunuch'
+# end file and directory-------------------------------------------------------
+
+
+# Start jump/search/substitue -------------------------------------------------
+[[plugins]]
+# quick move with "\\something"
+repo = 'Lokaltog/vim-easymotion'
+
+[[plugins]]
+# extended match by %
+repo = 'vim-scripts/matchit.zip'
+
+[[plugins]]
+# expand selection and go to visual mode(by +/-)
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+# :substitute preview. :OverCommandLine
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+# substitute visually selected text
+repo = 'aklt/vim-substitute'
+hook_add = '''
+" all lines with confirm
+let g:substitute_PromptMap = ";,"
+" all lines without confirm
+let g:substitute_NoPromptMap = ";."
+" specific lines with confirm
+let g:substitute_GlobalMap = ";'"
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+depends = 'incsearch.vim'
+hook_add = '''
+function! s:config_fuzzyall(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#fuzzy#converter(),
+  \     incsearch#config#fuzzyspell#converter()
+  \   ],
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> z/ incsearch#go(<SID>config_fuzzyall())
+noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
+noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch-easymotion.vim'
+depends = 'incsearch.vim'
+hook_add = '''
+map ;/ <Plug>(incsearch-easymotion-/)
+map ;? <Plug>(incsearch-easymotion-?)
+map ;g/ <Plug>(incsearch-easymotion-stay)
+'''
+
+[[plugins]]
+# search selected text in visual mode, `*` and `#` to search, `\*` to grep
+repo = 'bronson/vim-visual-star-search'
+hook_add = '''
+" use ag for recursive searching so we don't find 10,000 useless hits inside node_modules
+nnoremap <leader>* :Rg<CR>
+vnoremap <leader>* :Rg<CR>
+'''
+
+[[plugins]]
+# easily search for, substitute, and abbreviate multiple variants of a word
+# :Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
+# :%Subvert/facilit{y,ies}/building{,s}/g
+repo = 'tpope/vim-abolish'
+# End jump/search/substitue ---------------------------------------------------
+
+
+# Start tmux integration ------------------------------------------------------
+[[plugins]]
+# tmux integration
+# <c-h/j/k/l> to navigate panes of vim/tmux, <c-\> previous split
+repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
+# control tmux pane inside vim
+repo = 'benmills/vimux'
+hook_add = '''
+let g:VimuxOrientation = "h"
+" the unit is percent
+let g:VimuxHeight = "25"
+
+function! VimuxFocusRunner()
+  call VimuxOpenRunner()
+  if exists("g:VimuxRunnerIndex")
+    call system("tmux select-"._VimuxRunnerType()." -t ".g:VimuxRunnerIndex)
+  endif
+endfunction
+
+" Open a runner pane and focus on it
+map <Leader>vv :call VimuxFocusRunner()<CR>
+" Open a runner pane and focus on it
+map <Leader>vo :call VimuxFocusRunner()<CR>
+" Prompt for a command to run
+map <Leader>vc :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+'''
+
+[[plugins]]
+# makes the autoread option work properly for terminal vim.
+repo = 'tmux-plugins/vim-tmux-focus-events'
+
+[[plugins]]
+# Simple tmux statusline generator with support for powerline symbols
+# and vim/airline/lightline statusline integration
+repo = 'edkolev/tmuxline.vim'
+hook_add = '''
+let g:tmuxline_lightline_separators = '-'
+let g:tmuxline_preset = {
+  \'a'    : '#S',
+  \'win'  : '#I:#W#F',
+  \'cwin' : '#I:#W#F',
+  \'x'    : '%F %a',
+  \'y'    : '%R',
+  \'z'    : '#H'}
+'''
+# End tmux integration ------------------------------------------------------
+
+
+# Start syntax/format/autocomplete---------------------------------------------
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+# syntax, indent, format
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+" disable: conceal [link text](link url) as just link text
+let g:vim_markdown_conceal = 0
+'''
+
+[[plugins]]
+# Easy code formatting by integrating existing code formatters. :Autoformat
+repo = 'Chiel92/vim-autoformat'
+hook_add = '''
+let g:autoformat_verbosemode=0
+'''
+# End syntax/format/autocomplete-----------------------------------------------

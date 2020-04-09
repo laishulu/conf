@@ -1,0 +1,47 @@
+########################
+# node.js / npm
+########################
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+app/bower_components
+.nodeenv/
+
+
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_Store
+.netbeans
+nbproject
+.idea
+.*.swp
+.*.swo
+.tmp
+dist
+
+######################
+# html/css
+######################
+.sass-cache
+
+######################
+#  python/django
+######################
+*.pyc
+*.pyo
+local_setting.py
