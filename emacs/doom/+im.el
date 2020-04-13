@@ -91,8 +91,8 @@ Should accept a string which is the id of the input source.")
 (declare-function evil-motion-state-p "ext:evil-states.el" (&optional state) t)
 (declare-function evil-operator-state-p "ext:evil-states.el" (&optional state) t)
 (declare-function mac-input-source "src/macfns.c" (&optional SOURCE FORMAT) t)
-(declare-function mac-select-input-source "src/macfns.c" (&optional SOURCE FORMAT) t)
-
+(declare-function mac-select-input-source "src/macfns.c"
+                  (SOURCE &optional SET-KEYBOARD-LAYOUT-OVERRIDE-P) t)
 
 (defconst ENGLISH 1)
 (defconst OTHER 2)
