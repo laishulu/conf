@@ -6,3 +6,4 @@
 (package! evil-find-char-pinyin)
 (package! aggressive-indent)
 (package! tmux-pane)
+(package! smart-input-source)

@@ -16,5 +16,7 @@
   (evil-find-char-pinyin-mode 1)
   (evil-find-char-pinyin-toggle-snipe-integration t))
 
-(add-hook! '(text-mode-hook prog-mode-hook)
-           #'smart-input-source-mode)
+(use-package! smart-input-source
+  :config
+  (add-hook! '(text-mode-hook prog-mode-hook)
+             #'smart-input-source-mode))

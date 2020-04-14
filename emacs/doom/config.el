@@ -3,7 +3,6 @@
 (load! "+ui")
 (load! "+mouse")
 (load! "+tmux")
-(load! "+im")
 (load! "+edit")
 (load! "+tree")
 (load! "+evil")
