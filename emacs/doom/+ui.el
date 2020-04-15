@@ -11,6 +11,7 @@
         doom-variable-pitch-font (font-spec :family "Sarasa Nerd")
         doom-unicode-font (font-spec :family "Sarasa Nerd")
         doom-big-font (font-spec :family "Sarasa Nerd" :size 20)))
+(custom-set-faces! `(region :background ,(doom-color 'base5)))
 
 (set-display-table-slot standard-display-table
                         'vertical-border
