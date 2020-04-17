@@ -53,7 +53,6 @@ if ! zgen saved; then
   zgen oh-my-zsh "plugins/git"
   zgen oh-my-zsh "plugins/gitignore"
   zgen oh-my-zsh "plugins/git-flow-avh"
-  zgen oh-my-zsh "plugins/git-escape-magic"
 
   zgen oh-my-zsh "plugins/python"
   zgen oh-my-zsh "plugins/pip"
