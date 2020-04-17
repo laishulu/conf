@@ -33,7 +33,7 @@ fi
 if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
     touch ~/.site/pre.zsh
     echo "export CONF_DIR='$script_dir'" >> ~/.site/pre.zsh
-    touch ~/.site/plugin.zsh
+    touch ~/.site/plugins.zsh
     touch ~/.site/post.zsh
     ln -sf $script_dir/zsh/rc.zsh ~/.zshrc
     ln -sfn $script_dir/zsh ~/.zsh

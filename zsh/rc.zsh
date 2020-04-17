@@ -26,19 +26,24 @@ if ! zgen saved; then
   zgen oh-my-zsh
 
   zgen load "romkatv/powerlevel10k" "powerlevel10k"
-  zgen load "zsh-users/zsh-syntax-highlighting"
+  zgen load "zdharma/fast-syntax-highlighting"
   zgen load "zsh-users/zsh-history-substring-search"
-
   zgen load "zsh-users/zsh-completions"
   zgen load "zsh-users/zsh-autosuggestions"
   zgen load "psprint/zsh-navigation-tools"
 
+  zgen load "ChrisPenner/copy-pasta"
   zgen oh-my-zsh "plugins/fasd"
   zgen oh-my-zsh "plugins/vi-mode"
   zgen oh-my-zsh "plugins/tmux"
+  zgen oh-my-zsh "plugins/command-not-found"
+  zgen oh-my-zsh "plugins/colored-man-pages"
+  zgen oh-my-zsh "plugins/extract"
+  zgen oh-my-zsh "plugins/ripgrep"
 
   if hash fzf >/dev/null 2>&1; then
     zgen oh-my-zsh "plugins/fzf"
+    zgen oh-my-zsh "plugins/zsh-interactive-cd"
   fi
 
   if [[ `uname` == 'Darwin' ]]; then
@@ -48,6 +53,7 @@ if ! zgen saved; then
   zgen oh-my-zsh "plugins/git"
   zgen oh-my-zsh "plugins/gitignore"
   zgen oh-my-zsh "plugins/git-flow-avh"
+  zgen oh-my-zsh "plugins/git-escape-magic"
 
   zgen oh-my-zsh "plugins/python"
   zgen oh-my-zsh "plugins/pip"
@@ -58,6 +64,8 @@ if ! zgen saved; then
 
   zgen oh-my-zsh "plugins/rust"
   zgen oh-my-zsh "plugins/cargo"
+
+  zgen oh-my-zsh "plugins/stack"
 
   zgen oh-my-zsh "plugins/docker"
 
