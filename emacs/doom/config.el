@@ -1,11 +1,11 @@
 ;;(toggle-debug-on-error)
-(load! "+encoding")
-(load! "+ui")
-(load! "+mouse")
-(load! "+tmux")
-(load! "+edit")
-(load! "+tree")
-(load! "+evil")
+(load! "encoding")
+(load! "ui")
+(load! "mouse")
+(load! "tmux")
+(load! "edit")
+(load! "tree")
+(load! "evil")
 
 (defun ke ()
   "kill-emacs"
