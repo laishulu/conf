@@ -6,7 +6,8 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 (setq doom-theme 'doom-monokai-pro)
-(when (member "Sarasa Nerd" (font-family-list))
+(when (and (window-system)
+           (member "Sarasa Nerd" (font-family-list)))
   (setq doom-font (font-spec :family "Sarasa Nerd" :size 16)
         doom-variable-pitch-font (font-spec :family "Sarasa Nerd")
         doom-unicode-font (font-spec :family "Sarasa Nerd")
@@ -24,5 +25,5 @@
 
 ;; doom default to be 'character, but it's ugly for selections
 ;; but 'column does not work in terminal Emacs
-(if (window-system)
-    (setq highlight-indent-guides-method 'column))
+(when (window-system)
+  (setq highlight-indent-guides-method 'column))
