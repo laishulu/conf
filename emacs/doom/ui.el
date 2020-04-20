@@ -6,8 +6,7 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 (setq doom-theme 'doom-monokai-pro)
-(when (and (window-system)
-           (member "Sarasa Nerd" (font-family-list)))
+(when (member "Sarasa Nerd" (font-family-list))
   (setq doom-font (font-spec :family "Sarasa Nerd" :size 16)
         doom-variable-pitch-font (font-spec :family "Sarasa Nerd")
         doom-unicode-font (font-spec :family "Sarasa Nerd")
