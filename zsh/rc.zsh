@@ -32,7 +32,6 @@ if ! zgen saved; then
   zgen load "zsh-users/zsh-autosuggestions"
   zgen load "psprint/zsh-navigation-tools"
 
-  zgen load "ChrisPenner/copy-pasta"
   zgen oh-my-zsh "plugins/fasd"
   zgen oh-my-zsh "plugins/vi-mode"
   zgen oh-my-zsh "plugins/tmux"
