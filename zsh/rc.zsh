@@ -8,7 +8,7 @@ fi
 #==============================================
 # environment
 #==============================================
-source $HOME/.zsh/profile.zsh
+source $HOME/.zsh/profile.sh
 
 # user customized pre script
 test -e $HOME/.site/pre.zsh && source $HOME/.site/pre.zsh
