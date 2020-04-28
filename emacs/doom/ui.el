@@ -3,7 +3,7 @@
 ;; soft wrap
 (global-visual-line-mode)
 (setq-default fill-column 80)
-(add-hook 'text-mode-hook 'auto-fill-mode)
+(add-hook! 'text-mode-hook 'auto-fill-mode)
 
 (setq doom-theme 'doom-monokai-pro)
 (when (member "Sarasa Nerd" (font-family-list))
