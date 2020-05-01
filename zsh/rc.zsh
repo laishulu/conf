@@ -63,8 +63,9 @@ if ! zgen saved; then
   zgen oh-my-zsh "plugins/rust"
   zgen oh-my-zsh "plugins/cargo"
 
-  zgen oh-my-zsh "plugins/stack"
-
+  if ! type "rustup" >/dev/null 2>&1;then
+    zgen oh-my-zsh "plugins/stack"
+  fi
   zgen oh-my-zsh "plugins/docker"
 
   test -e $HOME/.site/plugins.zsh && source $HOME/.site/plugins.zsh
