@@ -46,9 +46,15 @@ source install.sh
 ```
 ## Post Install
 But if you use macos, and want to exchange keys of 
-`<caps lock>` and `<esc>`, you should clone optional submodule too by the 
+`<caps lock>` and `<esc>`, you should update optional submodules too by the 
 following command:
 
+```
+git submodule update --init --recursive
+
+```
+Or just use the following command instead to clone the repository in the
+previous step.
 ```
 git clone --recurse-submodules https://github.com/laishulu/conf.git
 ```
