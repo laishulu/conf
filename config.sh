@@ -48,6 +48,7 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.config/dircolors/LS_COLORS ]]; then
+	mkdir -p ~/.config/dircolors
 	ln -fs $script_dir/misc/LS_COLORS ~/.config/dircolors/
 fi
 
