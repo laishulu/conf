@@ -7,3 +7,5 @@
 (package! aggressive-indent)
 (package! tmux-pane)
 (package! smart-input-source)
+;; word around to the session restore issue
+(package! treemacs-persp :disable t)
