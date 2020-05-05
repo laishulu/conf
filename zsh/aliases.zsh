@@ -38,3 +38,5 @@ alias ec="$EC"
 alias ke="emacsclient -e '(kill-emacs)'"
 
 source $BREW_PREFIX/etc/profile.d/piknik.sh
+alias pktc="tmux save-buffer - | piknik -copy"
+alias pktp="piknik -paste | tmux load-buffer -"
