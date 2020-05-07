@@ -45,6 +45,7 @@
                                     "right"
                                     "tmux select-pane -R")))
  ;; change keymap to toggle sending escape to vterm
+ ;; usage: double `C-q' to toggle.
  (evil-collection-define-key '(normal insert) 'vterm-mode-map
    (kbd "C-q") 'evil-collection-vterm-toggle-send-escape))
 
