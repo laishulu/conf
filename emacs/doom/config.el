@@ -6,6 +6,7 @@
 (load! "edit")
 (load! "tree")
 (load! "evil")
+(load! "term")
 
 (defun ke ()
   "kill-emacs"
