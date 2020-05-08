@@ -39,7 +39,11 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 	ln -sf $script_dir/zsh/rc.zsh ~/.zshrc
 	ln -sfn $script_dir/zsh ~/.zsh
 	ln -sfn $script_dir/zsh/profile.sh ~/.profile
-	ln -sf $script_dir/zsh/p10k.zsh ~/.p10k.zsh
+	if [[ `uname` == 'Darwin' ]]; then
+		ln -sf $script_dir/zsh/p10k.macos.zsh ~/.p10k.zsh
+	else
+		ln -sf $script_dir/zsh/p10k.linux.zsh ~/.p10k.zsh
+	fi
 	# install package manager for zsh
 	if [[ ! -d ~/.zgen/.git/ ]]; then
 		rm -rvf ~/.zgen
