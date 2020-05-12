@@ -25,8 +25,11 @@ If you don't want to install softwares, or softwares are already available, you
 should set environment variable `donot_install_software=true` before install.
 
 In *Debian* linux, if you want to install software from *apt* in favor of
-*brew*, you should `source core.apt.sh` and then `export
-donot_install_software=true` before install.
+*brew*, you should run the following commands during install.
+```
+make apt
+donot_install_software=true make install
+```
 
 - It's recommended to create a dedicated user (e.g. `soft`) to install system 
 wide brew.
@@ -42,7 +45,7 @@ For MacOS, `xcode` should be installed first.
 cd
 git clone https://github.com/laishulu/conf.git <SOME_DIR>
 cd <SOME_DIR>
-source install.sh
+make install
 ```
 ## Post Install
 But if you use macos, and want to exchange keys of 
@@ -50,13 +53,7 @@ But if you use macos, and want to exchange keys of
 following command:
 
 ```
-git submodule update --init --recursive
-
-```
-Or just use the following command instead to clone the repository in the
-previous step.
-```
-git clone --recurse-submodules https://github.com/laishulu/conf.git
+make mac-optional
 ```
 
 ## Cusomization
