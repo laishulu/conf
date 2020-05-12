@@ -49,6 +49,7 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 		rm -rvf ~/.zgen
 		git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 	fi
+	zgen update && zgen selfupdate
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.config/dircolors/LS_COLORS ]]; then
