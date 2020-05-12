@@ -17,9 +17,10 @@
                         (make-glyph-code ?│))
 
 ;; startup maximized
-;; toggle-frame-maximized in mac port seems does not respect
+;; toggle-frame-maximized in EMP seems does not respect
 ;; frame-resize-pixelwise, so don't use it.
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(when (eq (window-system) 'mac)
+  (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
 
 ;; doom default to be 'character, but it's ugly for selections
 ;; but 'column does not work in terminal Emacs
