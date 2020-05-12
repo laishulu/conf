@@ -1,18 +1,18 @@
 .PHONY: install config overwrite emacs mac-optional apt
 install:
-	source install.sh
+	bash install.sh
 config:
-	source config.sh
+	bash config.sh
 overwrite:
-	overwrite=yes source config.sh
+	overwrite=yes bash config.sh
 emacs:
-	overwrite=yes source emacs/config.sh
+	overwrite=yes bash emacs/config.sh
 mac-optional:
 	git submodule update --init --recursive
-	source macos/optional/config.sh
+	bash macos/optional/config.sh
 apt:
-	source core.apt.sh
+	bash core.apt.sh
 extra:
-	source extra.sh
+	bash extra.sh
 dev:
-	source dev.sh
+	bash dev.sh
