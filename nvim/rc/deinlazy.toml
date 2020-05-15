@@ -1,10 +1,4 @@
 [[plugins]]
-# narrow region: focussing on a selected region
-# select the region, call :NR
-repo = 'chrisbra/nrrwrgn'
-on_cmd = 'NR'
-
-[[plugins]]
 # alignment. :EasyAlign
 repo = 'junegunn/vim-easy-align'
 on_cmd = 'EasyAlign'

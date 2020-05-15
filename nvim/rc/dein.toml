@@ -1,4 +1,10 @@
 [[plugins]]
+# narrow region: focussing on a selected region
+# select the region, call :NR
+repo = 'chrisbra/nrrwrgn'
+on_cmd = 'NR'
+
+[[plugins]]
 # load .lvimrc up to the root directory
 repo = 'embear/vim-localvimrc'
 
@@ -55,17 +61,18 @@ endif
 
 [[plugins]]
 # power status line
-repo = 'itchyny/lightline.vim'
+repo = 'vim-airline/vim-airline'
 hook_post_source = '''
-" g:lightline should appear before colorscheme command
-source ~/.config/nvim/rc/lightline.vim
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline_theme='bubblegum'
 '''
 
 [[plugins]]
-# monokai-pro theme for lightline
-repo = 'zaayer/lightline-monokai-pro'
-depends = 'zaayer/lightline-monokai-pro'
-
+# power status line
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline/vim-airline'
 # End color scheme ------------------------------------------------------------
 
 
@@ -304,14 +311,6 @@ repo = 'tpope/vim-speeddating'
 [[plugins]]
 # A plugin of NERDTree showing git status flags.
 repo = 'Xuyuanp/nerdtree-git-plugin'
-
-[[plugins]]
-# buffer explorer
-repo = 'techlivezheng/vim-plugin-minibufexpl'
-hook_add = '''
-" open and close MBE
-nnoremap <silent> <leader>tm :<C-u>MBEToggle<CR>
-'''
 # End view/navigate------------------------------------------------------------
 
 
