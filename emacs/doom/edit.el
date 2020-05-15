@@ -2,11 +2,6 @@
   :config
   (setq company-idle-delay 0.5))
 
-;; show yasnippet in company for python
-;; (after! anaconda-mode
-;;   (set-company-backend! 'anaconda-mode
-;;     '(company-anaconda company-yasnippet)))
-
 (use-package! aggressive-indent
   :config
   (global-aggressive-indent-mode))
