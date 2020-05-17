@@ -26,3 +26,8 @@
 ;; but 'column does not work in terminal Emacs
 (when (window-system)
   (setq highlight-indent-guides-method 'column))
+
+(after! centaur-tabs
+  (unless (window-system)
+    (setq centaur-tabs-set-bar nil))
+  (centaur-tabs-group-by-projectile-project))
