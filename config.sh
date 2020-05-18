@@ -92,6 +92,10 @@ if [[ $overwrite == "yes" || ! -e ~/.inputrc ]]; then
 	ln -sf $script_dir/misc/inputrc ~/.inputrc
 fi
 
+if [[ $overwrite == "yes" || ! -e ~/.haskeline ]]; then
+	ln -sf $script_dir/misc/haskeline ~/.haskeline
+fi
+
 touch ~/.site/init.el
 
 # -p says to create the dir if it doesn't exist already
