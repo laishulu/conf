@@ -49,6 +49,9 @@ if ! zgen saved; then
     zgen oh-my-zsh "plugins/osx"
   fi
 
+  zgen load "spwhitt/nix-zsh-completions"
+  zgen load "chisui/zsh-nix-shell"
+
   zgen oh-my-zsh "plugins/git"
   zgen oh-my-zsh "plugins/gitignore"
   zgen oh-my-zsh "plugins/git-flow-avh"
@@ -64,7 +67,7 @@ if ! zgen saved; then
   zgen oh-my-zsh "plugins/cargo"
 
   if type "rustup" >/dev/null 2>&1;then
-    zgen oh-my-zsh "plugins/stack"
+  zgen oh-my-zsh "plugins/stack"
   fi
   zgen oh-my-zsh "plugins/docker"
 
