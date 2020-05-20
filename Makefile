@@ -1,8 +1,8 @@
 .PHONY: install config overwrite emacs mac-optional apt
 help:
 	@echo "help         -- print help"
-	@echo "install      -- install conf"
-	@echo "overwrite    -- overwrite local config"
+	@echo "install      -- install and config packages"
+	@echo "overwrite    -- just overwrite local config"
 	@echo "emacs        -- install and config emacs"
 	@echo "mac-optional -- install and config optional packages for macos"
 	@echo "apt          -- install packages by apt without config"
