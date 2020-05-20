@@ -14,7 +14,7 @@
          :desc "vertical tmux" :nv "v" #'tmux-pane-toggle-vertical
          :desc "horizontal tmux" :nv "h" #'tmux-pane-toggle-horizontal)))
 
-;; override 'C-]' defined in evil-motion-state-map
+;; override 'C-\\' defined in evil-motion-state-map
 (after! (evil tmux-pane)
-  (define-key evil-motion-state-map "\C-]"
+  (define-key evil-motion-state-map "\C-\\"
     (lambda () (interactive) (tmux-pane--windmove "last" "tmux select-pane -l"))))
