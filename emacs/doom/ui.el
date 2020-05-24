@@ -16,13 +16,10 @@
                         'vertical-border
                         (make-glyph-code ?│))
 
-;; startup maximized
-;; toggle-frame-maximized in EMP seems does not respect
-;; frame-resize-pixelwise, so don't use it.
-(when (eq (window-system) 'mac)
-  (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
-
 ;; doom default to be 'character, but it's ugly for selections
 ;; but 'column does not work in terminal Emacs
-(when (window-system)
-  (setq highlight-indent-guides-method 'column))
+(add-hook (if (daemonp)
+              'server-after-make-frame-hook
+            'doom-load-theme-hook)
+          (lambda() (when (display-graphic-p)
+                 (setq highlight-indent-guides-method 'column))))
