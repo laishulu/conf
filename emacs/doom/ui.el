@@ -15,11 +15,3 @@
 (set-display-table-slot standard-display-table
                         'vertical-border
                         (make-glyph-code ?│))
-
-;; doom default to be 'character, but it's ugly for selections
-;; but 'column does not work in terminal Emacs
-(add-hook (if (daemonp)
-              'server-after-make-frame-hook
-            'doom-load-theme-hook)
-          (lambda() (when (display-graphic-p)
-                 (setq highlight-indent-guides-method 'column))))
