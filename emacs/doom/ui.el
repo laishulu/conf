@@ -15,3 +15,6 @@
 (set-display-table-slot standard-display-table
                         'vertical-border
                         (make-glyph-code ?│))
+
+;; highlight-indent-guides
+(setq highlight-indent-guides-suppress-auto-error t)
