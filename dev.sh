@@ -19,10 +19,12 @@ if [[ $install_py_dev == "yes" ]]; then
 	brew install python
 	# use brewed tools such as pip
 	export PATH=$BREW_PREFIX/opt/python/libexec/bin:$PATH
-	pip install --upgrade pip setuptools wheel
+	pip install --upgrade pip pipenv setuptools wheel
+	pip install --upgrade pyls-black
 	# without pip, zsh auto completion would not work
 	pip install --upgrade ipython
-	pip install --upgrade 'python-language-server[flake8, yapf, autopep8]'
+	pip install --upgrade 'python-language-server[rope,pyflakes,mccabe]'
+	pip install --upgrade black
 fi
 
 if [[ $install_rs_dev == "yes" ]]; then
@@ -51,7 +53,7 @@ if [[ $install_rs_dev == "yes" ]]; then
 
 	# tools
 	# for code completion
-	cargo install --force racer
+	cargo +nightly install --force racer
 	# packages/misc
 	cargo install --force cargo-count
 	cargo install --force cargo-show
@@ -63,7 +65,7 @@ if [[ $install_hs_dev == "yes" ]]; then
 	# For MacOS, if binutils is installed,
 	# should `brew unlink binutils` first,
 	# or it will cause problems.
-	brew install haskell-stack
+	brew install haskell-stack cabal-install
 	stack upgrade
 	stack setup
 	stack install hlint
