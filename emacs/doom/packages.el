@@ -6,5 +6,7 @@
 (package! evil-find-char-pinyin)
 (package! tmux-pane)
 (package! smart-input-source)
+(package! evil-pinyin :recipe
+  (:host github :repo "laishulu/evil-pinyin"))
 ;; word around to the session restore issue
 (package! treemacs-persp :disable t)

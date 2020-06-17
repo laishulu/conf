@@ -2,11 +2,6 @@
   :config
   (setq company-idle-delay 0.5))
 
-(use-package! evil-find-char-pinyin
-  :config
-  (evil-find-char-pinyin-mode 1)
-  (evil-find-char-pinyin-toggle-snipe-integration t))
-
 (use-package! smart-input-source
   :config
   (smart-input-source-global-auto-english-mode t)

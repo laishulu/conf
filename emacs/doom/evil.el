@@ -1,6 +1,10 @@
 (after! evil
   (setq evil-kill-on-visual-paste nil))
 
+(use-package! evil-pinyin
+  :after (evil pinyinlib)
+  (evil-pinyin-mode t))
+
 (use-package! evil-textobj-column
   :config
   (define-key evil-inner-text-objects-map "c" 'evil-textobj-column-word)
