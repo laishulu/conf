@@ -3,7 +3,6 @@
 (package! evil-textobj-line)
 (package! evil-textobj-syntax)
 (package! evil-textobj-entire)
-(package! evil-find-char-pinyin)
 (package! tmux-pane)
 (package! smart-input-source)
 (package! evil-pinyin :recipe
