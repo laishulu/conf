@@ -1,10 +1,12 @@
-(after! evil
+(after! evil:config
   (setq evil-kill-on-visual-paste nil))
 
 (use-package! evil-pinyin
   :after (evil)
   :config
-  (evil-pinyin-mode t))
+  (map! :leader
+        (:prefix "t"
+         :desc "pinyin search" :nv "p" #'evil-pinyin-mode)))
 
 (use-package! evil-textobj-column
   :config
