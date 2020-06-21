@@ -12,9 +12,12 @@
   (add-hook 'smart-input-source-set-english-hook
             (lambda ()
               (when original-cursor-background
-                (set-face-background 'cursor original-cursor-background))))
+                (set-cursor-color original-cursor-background))))
   (add-hook 'smart-input-source-set-other-hook
             (lambda ()
               (unless original-cursor-background
-                (setq original-cursor-background (face-background 'cursor)))
-              (set-face-background 'cursor "orange"))))
+                (setq original-cursor-background
+                      (or (cdr (assq 'cursor-color default-frame-alist))
+                          (face-background 'cursor)
+                          "Red")))
+              (set-cursor-color "green"))))
