@@ -31,6 +31,7 @@ if ! zgen saved; then
   zgen load "zsh-users/zsh-completions"
   zgen load "zsh-users/zsh-autosuggestions"
   zgen load "psprint/zsh-navigation-tools"
+  zgen load "kutsan/zsh-system-clipboard"
 
   zgen oh-my-zsh "plugins/fasd"
   zgen oh-my-zsh "plugins/vi-mode"
