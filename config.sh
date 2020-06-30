@@ -39,7 +39,7 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 	ln -sf $script_dir/zsh/rc.zsh ~/.zshrc
 	ln -sfn $script_dir/zsh ~/.zsh
 	ln -sfn $script_dir/zsh/profile.sh ~/.profile
-	if [[ `uname` == 'Darwin' ]]; then
+	if [[ $(uname) == 'Darwin' ]]; then
 		ln -sf $script_dir/zsh/p10k.macos.zsh ~/.p10k.zsh
 	else
 		ln -sf $script_dir/zsh/p10k.linux.zsh ~/.p10k.zsh
@@ -70,6 +70,11 @@ fi
 if [[ $overwrite == "yes" ]]; then
 	rm -rvf ~/.config/git
 	ln -sfn $script_dir/git/configgit ~/.config/git
+fi
+
+if [[ $overwrite == "yes" ]]; then
+	rm -rvf ~/.config/kitty
+	ln -sfn $script_dir/kitty ~/.config/kitty
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
