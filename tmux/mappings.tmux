@@ -48,8 +48,9 @@ bind -r + resize-pane -D 1
 # when bottom border is not splitter, move up the top border
 bind -r _ resize-pane -U 1
 
-# Kill panes without prompt.
-bind-key -T prefix x kill-pane
+# Kill panes.
+bind-key -T prefix X confirm-before -p "kill-pane #P? (y/n)" kill-pane
 
-# Kill windows without prompt.
-bind-key -T prefix X kill-window
+# Kill windows
+bind-key -T prefix X confirm-before -p "kill-window #W? (y/n)" kill-window
+
