@@ -5,7 +5,8 @@
 (package! evil-textobj-entire)
 (package! tmux-pane)
 (package! smart-input-source)
-(package! evil-pinyin :recipe
-  (:host github :repo "laishulu/evil-pinyin"))
+(package! evil-pinyin)
+(package! term-cursor :recipe
+  (:host github :repo "h0d/term-cursor.el"))
 ;; word around to the session restore issue
 (package! treemacs-persp :disable t)
