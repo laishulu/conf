@@ -2,6 +2,7 @@
 
 ;; soft wrap
 (global-visual-line-mode)
+(blink-cursor-mode)
 (setq-default fill-column 80)
 (add-hook! 'text-mode-hook 'auto-fill-mode)
 
