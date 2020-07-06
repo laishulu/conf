@@ -3,8 +3,8 @@ bind-key C-l send-keys 'C-l'
 
 # Reload configuration.
 bind-key -T prefix r \
-	source-file ~/.tmux/tmux.conf \; \
-	display-message ' (!) ~/.tmux/tmux.conf reloaded.'
+	source-file ~/.tmux.conf \; \
+	display-message ' (!) ~/.tmux.conf reloaded.'
 
 # Select
 bind-key -T copy-mode-vi v send-keys -X begin-selection
@@ -21,6 +21,9 @@ bind -n C-j if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
 bind -n C-k if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
 bind -n C-l if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
 bind -n "C-\\" if-shell "$is_vim_emacs" "send-keys C-\\" "select-pane -l"
+
+bind -n "C-_" "select-window -p"
+bind -n "C-]" "select-window -n"
 
 # enable in copy mode key table
 bind -Tcopy-mode-vi C-h if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
