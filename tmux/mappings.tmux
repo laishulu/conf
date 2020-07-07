@@ -22,8 +22,7 @@ bind -n C-k if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
 bind -n C-l if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
 bind -n "C-\\" if-shell "$is_vim_emacs" "send-keys C-\\" "select-pane -l"
 
-bind -n "C-_" "select-window -p"
-bind -n "C-]" "select-window -n"
+bind -n "C-]" "select-window -l"
 
 # enable in copy mode key table
 bind -Tcopy-mode-vi C-h if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
