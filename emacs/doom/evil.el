@@ -4,9 +4,7 @@
 (use-package! evil-pinyin
   :after (evil)
   :config
-  (map! :leader
-        (:prefix "t"
-         :desc "pinyin search" :nv "p" #'evil-pinyin-mode)))
+  (evil-pinyin-mode t))
 
 (use-package! evil-textobj-column
   :config
