@@ -16,20 +16,21 @@ is_vim_emacs='echo "#{pane_current_command}" | \
     grep -iqE "((^|\/)g?(view|n?vim?x?)(diff)?$)|emacs"'
 
 # enable in root key table
-bind -n C-h if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
-bind -n C-j if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
-bind -n C-k if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
-bind -n C-l if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
-bind -n "C-\\" if-shell "$is_vim_emacs" "send-keys C-\\" "select-pane -l"
-
-bind -n "C-]" "select-window -l"
+bind -n 'C-h' if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
+bind -n 'C-j' if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
+bind -n 'C-k' if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
+bind -n 'C-l' if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
+bind -n 'C-\' if-shell "$is_vim_emacs" "send-keys C-\\\\" "select-pane -l"
 
 # enable in copy mode key table
-bind -Tcopy-mode-vi C-h if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
-bind -Tcopy-mode-vi C-j if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
-bind -Tcopy-mode-vi C-k if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
-bind -Tcopy-mode-vi C-l if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
-bind -Tcopy-mode-vi "C-\\" if-shell "$is_vim_emacs" "send-keys C-\\" "select-pane -l"
+bind -Tcopy-mode-vi 'C-h' if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
+bind -Tcopy-mode-vi 'C-j' if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
+bind -Tcopy-mode-vi 'C-k' if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
+bind -Tcopy-mode-vi 'C-l' if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
+bind -Tcopy-mode-vi 'C-\' if-shell "$is_vim_emacs" "send-keys C-\\\\" "select-pane -l"
+
+# switch between last windows
+bind -n 'C-]' "select-window -l"
 
 # vim's definition of a horizontal/vertical split is reversed from tmux's
 bind s split-window -v
