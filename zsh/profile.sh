@@ -1,10 +1,6 @@
 #!/bin/sh
 # PATH will later be reordered in /etc/zprofile that calls /usr/libexec/path_helper
 # thus this file should be called again in .zshrc
-LANG="en_US.UTF-8"
-LANGUAGE="en_US.UTF-8"
-LC_CTYPE="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
 
 if [ -e "$HOME/.brew.zsh" ]; then
 	# shellcheck source=/dev/null
