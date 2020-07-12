@@ -2,8 +2,10 @@
 
 root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)
 
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
+if [[ $(uname) == 'Darwin' ]]; then
+	brew tap d12frosted/emacs-plus
+	brew install emacs-plus
+fi
 
 # needed by vterm of emacs
 brew install cmake libvterm
