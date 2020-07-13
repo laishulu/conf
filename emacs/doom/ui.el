@@ -8,7 +8,9 @@
 (add-hook! 'text-mode-hook 'auto-fill-mode)
 
 (setq doom-theme 'doom-monokai-pro)
-(when (member "Sarasa Nerd" (font-family-list))
+
+;; DON'T use (`font-family-list'), it's unreliable on Linux
+(when (find-font (font-spec :name "Sarasa Nerd"))
   (setq doom-font (font-spec :family "Sarasa Nerd" :size 16)
         doom-variable-pitch-font (font-spec :family "Sarasa Nerd")
         doom-unicode-font (font-spec :family "Sarasa Nerd")
