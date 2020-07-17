@@ -1,4 +1,4 @@
-(after! evil:config
+(after! evil
   (setq evil-kill-on-visual-paste nil))
 
 (use-package! evil-pinyin
