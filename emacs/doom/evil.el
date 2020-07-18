@@ -4,7 +4,7 @@
 (use-package! evil-pinyin
   :after (evil)
   :config
-  (evil-pinyin-mode t))
+  (global-evil-pinyin-mode t))
 
 (use-package! evil-textobj-column
   :config
