@@ -7,6 +7,8 @@
 	tool = fugitive
 [push]
 	default = simple
+[pull]
+	rebase = false
 [filter "media"]
 	required = true
 	clean = git media clean %f
