@@ -1,13 +1,15 @@
+(setq confirm-kill-processes nil)
+
 (use-package! company
   :config
   (setq company-idle-delay 0.5))
 
-(use-package! smart-input-source
+(use-package! sis
   :after (evil tmux-pane)
   :init
   :config
-  (delete "C-h" smart-input-source-prefix-override-keys)
-  (smart-input-source-global-respect-mode t)
-  (smart-input-source-global-inline-mode t)
-  (smart-input-source-global-follow-context-mode t)
-  (smart-input-source-global-cursor-color-mode t))
+  (delete "C-h" sis-prefix-override-keys)
+  (sis-global-respect-mode t)
+  (sis-global-inline-mode t)
+  (sis-global-follow-context-mode t)
+  (sis-global-cursor-color-mode t))
