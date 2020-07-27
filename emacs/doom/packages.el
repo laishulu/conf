@@ -4,7 +4,7 @@
 (package! evil-textobj-syntax)
 (package! evil-textobj-entire)
 (package! tmux-pane)
-(package! smart-input-source)
+(package! sis)
 (package! evil-pinyin)
 (package! term-cursor :recipe
   (:host github :repo "h0d/term-cursor.el"))
