@@ -102,6 +102,11 @@ bindkey '^f' autosuggest-accept
 # }}}
 
 # fzf {{{
+if hash sk >/dev/null 2>&1; then
+    export SKIM_DEFAULT_COMMAND="fd || git ls-tree -r --name-only HEAD || find ."
+    alias fzf="sk"
+fi
+
 if hash fzf >/dev/null 2>&1; then
     fzf-history-widget-accept() {
         fzf-history-widget
