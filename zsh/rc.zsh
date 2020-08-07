@@ -32,8 +32,8 @@ if ! zgen saved; then
   zgen load "zsh-users/zsh-autosuggestions"
   zgen load "psprint/zsh-navigation-tools"
   zgen load "kutsan/zsh-system-clipboard"
+  zgen load "skywind3000/z.lua"
 
-  zgen oh-my-zsh "plugins/fasd"
   zgen oh-my-zsh "plugins/vi-mode"
   zgen oh-my-zsh "plugins/tmux"
   zgen oh-my-zsh "plugins/command-not-found"
