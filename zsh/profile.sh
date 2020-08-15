@@ -10,11 +10,6 @@ if [ -e "$HOME/.brew.zsh" ]; then
 	export PATH="$BREW_PREFIX/opt/python/libexec/bin":$PATH
 	export MANPATH="$BREW_PREFIX/share/man":$MANPATH
 	export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman":$MANPATH
-
-	# for brewed openssl
-	export LDFLAGS="-L$BREW_PREFIX/opt/openssl/lib"
-	export CPPFLAGS="-I$BREW_PREFIX/opt/openssl/include"
-
 	export FZF_BASE="$BREW_PREFIX/opt/fzf"
 fi
 
