@@ -11,4 +11,4 @@ fi
 brew install cmake libvterm
 brew install editorconfig gnu-indent global
 
-source $root_dir/emacs/config.sh
+source "$root_dir/emacs/config.sh"

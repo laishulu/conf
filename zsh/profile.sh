@@ -13,8 +13,9 @@ if [ -e "$HOME/.brew.zsh" ]; then
 	export FZF_BASE="$BREW_PREFIX/opt/fzf"
 fi
 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-	. $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+	# shellcheck source=~/.nix-profile/etc/profile.d/nix.sh
+	. "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 
 if [ -e "$HOME/.emacs.d/bin" ]; then

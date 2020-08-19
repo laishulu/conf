@@ -25,6 +25,7 @@ if [[ $install_py_dev == "yes" ]]; then
 	pip install --upgrade ipython
 	pip install --upgrade 'python-language-server[rope,pyflakes,mccabe]'
 	pip install --upgrade black
+	pip install --upgrade flake8
 fi
 
 if [[ $install_rs_dev == "yes" ]]; then
@@ -38,7 +39,7 @@ if [[ $install_rs_dev == "yes" ]]; then
 	fi
 
 	PATH=$PATH:$HOME/.cargo/bin
-	CARGO_HOME=$HOME/.cargo
+	export CARGO_HOME=$HOME/.cargo
 
 	rustup component add rust-src
 	rustup component add rustfmt

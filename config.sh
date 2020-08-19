@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 #
-mkdir -p $HOME/.site/zfunctions
-test -e $HOME/.zsh/profile.sh && source $HOME/.zsh/profile.sh
+mkdir -p "$HOME/.site/zfunctions"
+
+# shellcheck source=~/.zsh/profile.sh
+test -e "$HOME/.zsh/profile.sh" && source "$HOME/.zsh/profile.sh"
 
 # get the dir of the current script
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-if [[ $overwrite && $SHELL != *zsh* ]]; then
+if [ -v overwrite ] && [[ $SHELL != *zsh* ]]; then
 	USER_ZSH=$(command -v zsh)
 
 	if ! grep -q "$USER_ZSH" "/etc/shells"; then
@@ -17,16 +19,16 @@ if [[ $overwrite && $SHELL != *zsh* ]]; then
 	if grep -q "zsh" "/etc/shells"; then
 		if grep -q "$USER_ZSH" "/etc/shells"; then
 			echo "Input your password to set zsh as your login shell"
-			chsh -s "$USER_ZSH" $USER
+			chsh -s "$USER_ZSH" "$USER"
 		else
 			echo "$USER_ZSH is not in /etc/shells, now use other available zsh"
 			echo "Input your password to set zsh as your login shell"
-			chsh -s "$(tac /etc/shells | grep -m 1 zsh)" $USER
+			chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
 		fi
 	else
 		echo "No zsh found in /etc/shells"
 		echo "Now add zsh to your bash config"
-		grep -q "$(command -v zsh)" && echo "$(command -v zsh)" >>~/.bashrc
+		grep -q "$(command -v zsh)" && "command -v zsh" >>~/.bashrc
 	fi
 fi
 
@@ -36,13 +38,13 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 	touch ~/.site/plugins.zsh
 	touch ~/.site/post.zsh
 	touch ~/.site/profile.sh
-	ln -sf $script_dir/zsh/rc.zsh ~/.zshrc
-	ln -sfn $script_dir/zsh ~/.zsh
-	ln -sfn $script_dir/zsh/profile.sh ~/.profile
+	ln -sf "$script_dir/zsh/rc.zsh" ~/.zshrc
+	ln -sfn "$script_dir/zsh" ~/.zsh
+	ln -sfn "$script_dir/zsh/profile.sh" ~/.profile
 	if [[ $(uname) == 'Darwin' ]]; then
-		ln -sf $script_dir/zsh/p10k.macos.zsh ~/.p10k.zsh
+		ln -sf "$script_dir/zsh/p10k.macos.zsh" ~/.p10k.zsh
 	else
-		ln -sf $script_dir/zsh/p10k.linux.zsh ~/.p10k.zsh
+		ln -sf "$script_dir/zsh/p10k.linux.zsh" ~/.p10k.zsh
 	fi
 	# install package manager for zsh
 	if [[ ! -d ~/.zgen/.git/ ]]; then
@@ -54,13 +56,13 @@ fi
 
 if [[ $overwrite == "yes" || ! -e ~/.config/dircolors/LS_COLORS ]]; then
 	mkdir -p ~/.config/dircolors
-	ln -fs $script_dir/misc/LS_COLORS ~/.config/dircolors/
+	ln -fs "$script_dir/misc/LS_COLORS" ~/.config/dircolors/
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.tmux.conf ]]; then
 	mkdir -p ~/.config
 	touch ~/.site/tmux.conf
-	ln -sfn $script_dir/tmux ~/.config/
+	ln -sfn "$script_dir/tmux" ~/.config/
 	ln -sf ~/.config/tmux/tmux.conf ~/.tmux.conf
 	rm -rvf ~/.tmux/plugins
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -69,12 +71,12 @@ fi
 
 if [[ $overwrite == "yes" ]]; then
 	rm -rvf ~/.config/git
-	ln -sfn $script_dir/git/configgit ~/.config/git
+	ln -sfn "$script_dir/git/configgit" ~/.config/git
 fi
 
 if [[ $overwrite == "yes" ]]; then
 	rm -rvf ~/.config/kitty
-	ln -sfn $script_dir/kitty ~/.config/kitty
+	ln -sfn "$script_dir/kitty" ~/.config/kitty
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
@@ -82,8 +84,8 @@ if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
 	touch ~/.site/post.vim
 	mkdir -p ~/.config/nvim/
 	# for nvim
-	ln -sfn $script_dir/nvim/nvim.vim ~/.config/nvim/init.vim
-	ln -sfn $script_dir/nvim/rc ~/.config/nvim/rc
+	ln -sfn "$script_dir/nvim/nvim.vim" ~/.config/nvim/init.vim
+	ln -sfn "$script_dir/nvim/rc" ~/.config/nvim/rc
 
 	# install package manager for nvim
 	if [[ ! -d ~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/.git/ ]]; then
@@ -94,14 +96,14 @@ if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.inputrc ]]; then
-	ln -sf $script_dir/misc/inputrc ~/.inputrc
+	ln -sf "$script_dir/misc/inputrc" ~/.inputrc
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.haskeline ]]; then
-	ln -sf $script_dir/misc/haskeline ~/.haskeline
+	ln -sf "$script_dir/misc/haskeline" ~/.haskeline
 fi
 
 touch ~/.site/init.el
 
 # -p says to create the dir if it doesn't exist already
-mkdir -p $HOME/bin
+mkdir -p "$HOME/bin"
