@@ -20,10 +20,18 @@
    (evil-collection-define-key '(normal insert) 'vterm-mode-map
      (kbd "C-c") 'vterm--self-insert
      ;; for CLI emacs
-     (kbd "ESC <escape>") 'evil-collection-vterm-toggle-send-escape
+     (kbd "ESC <escape>") 'forward-vterm-escape-to-emacs
      ;; for GUI emacs
-     (kbd "M-<escape>") 'evil-collection-vterm-toggle-send-escape)
+     (kbd "M-<escape>") 'forward-vterm-escape-to-emacs)
    ;; send escape to vterm by default
    (evil-collection-vterm-toggle-send-escape)))
+
+(defun forward-vterm-escape-to-emacs ()
+  "Forward <escape> from vterm to emacs."
+  (interactive)
+  (evil-collection-vterm-toggle-send-escape)
+  (execute-kbd-macro (kbd "<escape>"))
+  (evil-collection-vterm-toggle-send-escape)
+  (message "ESC sent to emacs!"))
 
 (use-package! vtm)
