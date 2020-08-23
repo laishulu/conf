@@ -25,3 +25,5 @@
      (kbd "M-<escape>") 'evil-collection-vterm-toggle-send-escape)
    ;; send escape to vterm by default
    (evil-collection-vterm-toggle-send-escape)))
+
+(use-package! vtm)

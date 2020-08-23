@@ -8,5 +8,7 @@
 (package! evil-pinyin)
 (package! term-cursor :recipe
   (:host github :repo "h0d/term-cursor.el"))
+(package! vtm :recipe
+  (:host github :repo "laishulu/emacs-vterm-manager"))
 ;; word around to the session restore issue
 (package! treemacs-persp :disable t)
