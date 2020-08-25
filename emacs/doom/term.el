@@ -4,19 +4,11 @@
    'vterm-mode-hook
    ;; evil-collection for vterm overrided some keymaps defined by tmux-pane
    (evil-collection-define-key 'insert 'vterm-mode-map
-     (kbd "C-h") (lambda () (interactive) (tmux-pane--windmove
-                                      "left"
-                                      "tmux select-pane -L"))
-     (kbd "C-j") (lambda () (interactive) (tmux-pane--windmove
-                                      "down"
-                                      "tmux select-pane -D"))
-     (kbd "C-k") (lambda () (interactive) (tmux-pane--windmove
-                                      "up"
-                                      "tmux select-pane -U"))
-     (kbd "C-l") (lambda () (interactive) (tmux-pane--windmove
-                                      "right"
-                                      "tmux select-pane -R")))
-   ;; change keymap to toggle sending escape to vterm
+     (kbd "C-h") 'tmux-pane-omni-window-left
+     (kbd "C-j") 'tmux-pane-omni-window-down
+     (kbd "C-k") 'tmux-pane-omni-window-up
+     (kbd "C-l") 'tmux-pane-omni-window-right)
+
    (evil-collection-define-key '(normal insert) 'vterm-mode-map
      (kbd "C-c") 'vterm--self-insert
      ;; for CLI emacs
