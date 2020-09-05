@@ -10,7 +10,7 @@ if [ "$(uname)" == "Linux" ]; then
 	fi
 fi
 
-if [ ! -v overwrite ]; then
+if ! [ -v overwrite ]; then
 	echo -n "Do you want to overwrite existing configs? (no/yes):"
 	read -r overwrite
 fi
@@ -30,12 +30,12 @@ fi
 
 if [ "$donot_install_software" != "yes" ]; then
 
-	if [ ! -v install_dev ]; then
+	if ! [ -v install_dev ]; then
 		echo -n "Do you want to install extra tools? (no/yes):"
 		read -r install_extra
 	fi
 
-	if [ ! -v install_dev ]; then
+	if ! [ -v install_dev ]; then
 		echo -n "Do you want to write codes? (no/yes):"
 		read -r install_dev
 	fi
