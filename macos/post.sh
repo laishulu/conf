@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # required to use clipboard in tmux
 brew install reattach-to-user-namespace

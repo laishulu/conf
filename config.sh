@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 #
 mkdir -p "$HOME/.site/zfunctions"
 
