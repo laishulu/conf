@@ -60,10 +60,10 @@ if [[ $overwrite == "yes" || ! -e ~/.config/dircolors/LS_COLORS ]]; then
 fi
 
 if [[ $overwrite == "yes" || ! -e ~/.tmux.conf ]]; then
-	mkdir -p ~/.config
+	mkdir -p ~/.config/tmux
 	touch ~/.site/tmux.conf
-	ln -sfn "$script_dir/tmux" ~/.config/
-	ln -sf ~/.config/tmux/tmux.conf ~/.tmux.conf
+	ln -sfn "$script_dir/tmux" ~/.config/tmux/conf
+	ln -sf ~/.config/tmux/conf/tmux.conf ~/.tmux.conf
 	rm -rvf ~/.tmux/plugins
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	~/.tmux/plugins/tpm/bin/install_plugins
