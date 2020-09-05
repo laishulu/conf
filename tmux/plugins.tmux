@@ -54,7 +54,7 @@ set -g @plugin 'jimeh/tmux-themepack'
 
 if-shell 'test "$(uname -s)" = Darwin' 'source ~/.config/tmux/conf/macos.tmux'
 if-shell 'test "$(uname -s)" = Linux' 'source ~/.config/tmux/conf/linux.tmux'
-if-shell "test -f ~/.site/tmux.conf" "source ~/.site/conf/tmux.conf"
+if-shell "test -f ~/.site/tmux.conf" "source ~/.site/tmux.conf"
 
 # tmux plugin manager, must be at the very bottom of tmux.conf
 # don't use the -b flag, or it might encounter race problems
