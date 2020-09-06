@@ -1,5 +1,5 @@
-#!/usr/bin/env zsh
-#
+#!/usr/bin/env bash
+
 mkdir -p "$HOME/.site/zfunctions"
 
 # shellcheck source=~/.zsh/profile.sh
@@ -8,7 +8,7 @@ test -e "$HOME/.zsh/profile.sh" && source "$HOME/.zsh/profile.sh"
 # get the dir of the current script
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-if [ -v overwrite ] && [[ $SHELL != *zsh* ]]; then
+if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 	USER_ZSH=$(command -v zsh)
 
 	if ! grep -q "$USER_ZSH" "/etc/shells"; then
@@ -32,7 +32,7 @@ if [ -v overwrite ] && [[ $SHELL != *zsh* ]]; then
 	fi
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.zshrc ]]; then
 	touch ~/.site/pre.zsh
 	echo "export CONF_DIR='$script_dir'" >>~/.site/pre.zsh
 	touch ~/.site/plugins.zsh
@@ -54,12 +54,12 @@ if [[ $overwrite == "yes" || ! -e ~/.zshrc ]]; then
 	zgen update && zgen selfupdate
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.config/dircolors/LS_COLORS ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.config/dircolors/LS_COLORS ]]; then
 	mkdir -p ~/.config/dircolors
 	ln -fs "$script_dir/misc/LS_COLORS" ~/.config/dircolors/
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.tmux.conf ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.tmux.conf ]]; then
 	mkdir -p ~/.config/tmux
 	touch ~/.site/tmux.conf
 	ln -sfn "$script_dir/tmux" ~/.config/tmux/conf
@@ -79,7 +79,7 @@ if [[ $overwrite == "yes" ]]; then
 	ln -sfn "$script_dir/kitty" ~/.config/kitty
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.config/nvim/init.vim ]]; then
 	touch ~/.site/pre.vim
 	touch ~/.site/post.vim
 	mkdir -p ~/.config/nvim/
@@ -95,11 +95,11 @@ if [[ $overwrite == "yes" || ! -e ~/.config/nvim/init.vim ]]; then
 	fi
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.inputrc ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.inputrc ]]; then
 	ln -sf "$script_dir/misc/inputrc" ~/.inputrc
 fi
 
-if [[ $overwrite == "yes" || ! -e ~/.haskeline ]]; then
+if [[ $overwrite == "yes" ]] || ! [[ -e ~/.haskeline ]]; then
 	ln -sf "$script_dir/misc/haskeline" ~/.haskeline
 fi
 

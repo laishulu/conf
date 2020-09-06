@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 sudo apt install zsh lua tmux neovim direnv
 sudo apt install cmake tig

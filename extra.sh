@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # ssh related tools
 brew install stormssh ssh-copy-id sshfs

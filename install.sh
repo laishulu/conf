@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # get the dir of the current script
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -10,7 +10,7 @@ if [ "$(uname)" == "Linux" ]; then
 	fi
 fi
 
-if ! [ -v overwrite ]; then
+if [ -z $overwrite ]; then
 	echo -n "Do you want to overwrite existing configs? (no/yes):"
 	read -r overwrite
 fi
