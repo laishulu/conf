@@ -18,12 +18,10 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 
 	if grep -q "zsh" "/etc/shells"; then
 		if grep -q "$USER_ZSH" "/etc/shells"; then
-			echo "Input your password to set zsh as your login shell"
-			chsh -s "$USER_ZSH" "$USER"
+			sudo chsh -s "$USER_ZSH" "$USER"
 		else
 			echo "$USER_ZSH is not in /etc/shells, now use other available zsh"
-			echo "Input your password to set zsh as your login shell"
-			chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+			sudo chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
 		fi
 	else
 		echo "No zsh found in /etc/shells"
