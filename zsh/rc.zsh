@@ -31,7 +31,6 @@ if ! zgen saved; then
   zgen load "zsh-users/zsh-completions"
   zgen load "zsh-users/zsh-autosuggestions"
   zgen load "psprint/zsh-navigation-tools"
-  zgen load "kutsan/zsh-system-clipboard"
   zgen load "skywind3000/z.lua"
 
   zgen oh-my-zsh "plugins/vi-mode"
@@ -48,6 +47,7 @@ if ! zgen saved; then
 
   if [[ `uname` == 'Darwin' ]]; then
     zgen oh-my-zsh "plugins/osx"
+    zgen load "kutsan/zsh-system-clipboard"
   fi
 
   zgen load "spwhitt/nix-zsh-completions"
