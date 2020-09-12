@@ -18,10 +18,18 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 
 	if grep -q "zsh" "/etc/shells"; then
 		if grep -q "$USER_ZSH" "/etc/shells"; then
-			sudo chsh -s "$USER_ZSH" "$USER"
+			if sudo -v 2>&1; then
+				sudo chsh -s "$USER_ZSH" "$USER"
+			else
+				chsh -s "$USER_ZSH" "$USER"
+			fi
 		else
 			echo "$USER_ZSH is not in /etc/shells, now use other available zsh"
-			sudo chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+			if sudo -v 2>&1; then
+				sudo chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+			else
+				chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+			fi
 		fi
 	else
 		echo "No zsh found in /etc/shells"
