@@ -11,24 +11,6 @@ bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi V send-keys -X select-line
 bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
 
-# Smart pane switching with awareness of vim splits
-is_vim_emacs='echo "#{pane_current_command}" | \
-    grep -iqE "((^|\/)g?(view|n?vim?x?)(diff)?$)|emacs"'
-
-# enable in root key table
-bind -n 'C-h' if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
-bind -n 'C-j' if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
-bind -n 'C-k' if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
-bind -n 'C-l' if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
-bind -n 'C-\' if-shell "$is_vim_emacs" "send-keys C-\\\\" "select-pane -l"
-
-# enable in copy mode key table
-bind -Tcopy-mode-vi 'C-h' if-shell "$is_vim_emacs" "send-keys C-h" "select-pane -L"
-bind -Tcopy-mode-vi 'C-j' if-shell "$is_vim_emacs" "send-keys C-j" "select-pane -D"
-bind -Tcopy-mode-vi 'C-k' if-shell "$is_vim_emacs" "send-keys C-k" "select-pane -U"
-bind -Tcopy-mode-vi 'C-l' if-shell "$is_vim_emacs" "send-keys C-l" "select-pane -R"
-bind -Tcopy-mode-vi 'C-\' if-shell "$is_vim_emacs" "send-keys C-\\\\" "select-pane -l"
-
 # switch between last windows
 bind -n 'C-]' "select-window -l"
 

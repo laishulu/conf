@@ -49,6 +49,9 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # highlights when you press tmux prefix key
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
+# integrate with vim/emacs
+set -g @plugin 'laishulu/emacs-tmux-pane'
+
 # theme
 set -g @plugin 'jimeh/tmux-themepack'
 
