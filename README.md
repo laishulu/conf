@@ -48,11 +48,11 @@ cd <SOME_DIR>
 make install
 ```
 To display ZSH prompt properly, you should also install font of
-[[https://github.com/laishulu/Sarasa-Mono-SC-Nerd/archive/master.zip][Sarasa-Mono-SC-Nerd]],
+[Sarasa-Mono-SC-Nerd](https://github.com/laishulu/Sarasa-Mono-SC-Nerd/archive/master.zip),
 and set it as your terminal fonts.
 
 For MacOS, /kitty/ will also be installed and preconfigured with this font, so 
-you can use /kitty/ as your terminal directly.
+you can use /kitty/ as your terminal directly without hassle.
 
 ## Post Install
 But if you use macos, and want to exchange keys of 
