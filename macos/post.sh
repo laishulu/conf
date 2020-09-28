@@ -4,5 +4,5 @@
 brew install reattach-to-user-namespace
 brew install fontconfig
 brew tap laishulu/fonts
-brew install SarasaNerd
+brew install sarasa-nerd
 brew cask install kitty
