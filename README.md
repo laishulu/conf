@@ -20,7 +20,7 @@ significant time could be saved if `cargo` and `golang` is avaiable already.
 - unprivileged user can install in his own directory.
 - `sudo` users can install system widely. `NOPASSWD` priviledge is required by
   this config additionally.
-  
+
 If you don't want to install softwares, or softwares are already available, you
 should set environment variable `donot_install_software=true` before install.
 
@@ -51,8 +51,8 @@ To display ZSH prompt properly, you should also install font of
 [Sarasa-Mono-SC-Nerd](https://github.com/laishulu/Sarasa-Mono-SC-Nerd/archive/master.zip),
 and set it as your terminal fonts.
 
-For MacOS, /kitty/ will also be installed and preconfigured with this font, so 
-you can use /kitty/ as your terminal directly without hassle.
+For MacOS, *kitty* will also be installed and preconfigured with this font, so 
+you can use *kitty* as your terminal directly without hassle.
 
 ## Post Install
 But if you use macos, and want to exchange keys of 
