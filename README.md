@@ -47,6 +47,13 @@ git clone https://github.com/laishulu/conf.git <SOME_DIR>
 cd <SOME_DIR>
 make install
 ```
+To display ZSH prompt properly, you should also install font of
+[[https://github.com/laishulu/Sarasa-Mono-SC-Nerd/archive/master.zip][Sarasa-Mono-SC-Nerd]],
+and set it as your terminal fonts.
+
+For MacOS, /kitty/ will also be installed and preconfigured with this font, so 
+you can use /kitty/ as your terminal directly.
+
 ## Post Install
 But if you use macos, and want to exchange keys of 
 `<caps lock>` and `<esc>`, you should update optional submodules too by the 
