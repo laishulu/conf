@@ -43,6 +43,8 @@ if ! zgen saved; then
   if hash fzf >/dev/null 2>&1; then
     zgen oh-my-zsh "plugins/fzf"
     zgen oh-my-zsh "plugins/zsh-interactive-cd"
+    # run `build-fzf-tab-module` to speedup
+    zgen load "Aloxaf/fzf-tab"
   fi
 
   if [[ `uname` == 'Darwin' ]]; then
