@@ -12,6 +12,4 @@
   (:host github :repo "laishulu/emacs-vterm-manager"))
 ;; word around to the session restore issue
 (package! treemacs-persp :disable t)
-
 (package! command-log-mode)
-

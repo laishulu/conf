@@ -1,12 +1,10 @@
 (setq confirm-kill-processes nil)
 
-(use-package! company
-  :config
+(after! company
   (setq company-idle-delay 0.5))
 
 (use-package! sis
   :after (evil tmux-pane)
-  :init
   :config
   (delete "C-h" sis-prefix-override-keys)
   (sis-global-respect-mode t)
