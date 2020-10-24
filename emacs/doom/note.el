@@ -14,5 +14,5 @@
         '(("d" "default" plain (function org-roam--capture-get-point)
            "%?"
            :file-name "${slug}"
-           :head "#+title: ${title}\n#+roam_alias:\n\n"
+           :head "#+title: ${title}\n\n"
            :unnarrowed t))))
