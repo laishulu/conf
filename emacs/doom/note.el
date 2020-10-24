@@ -10,10 +10,9 @@
   (setq org-journal-enable-agenda-integration t))
 
 (after! org-roam
-  (setq org-roam-tag-sources '(prop last-directory))
   (setq org-roam-capture-templates
         '(("d" "default" plain (function org-roam--capture-get-point)
            "%?"
            :file-name "${slug}"
-           :head "#+title: ${title}\n#+roam_alias:\n"
+           :head "#+title: ${title}\n#+roam_alias:\n\n"
            :unnarrowed t))))
