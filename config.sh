@@ -16,13 +16,14 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 		sudo -v 2>&1 && echo "$USER_ZSH" | sudo tee -a /etc/shells
 	fi
 
-	echo "Now set zsh as your login shell (may ask you for password)"
+	echo "Now set zsh as your login shell"
 
 	if grep -q "zsh" "/etc/shells"; then
 		if grep -q "$USER_ZSH" "/etc/shells"; then
 			if sudo -v 2>&1; then
 				sudo chsh -s "$USER_ZSH" "$USER"
 			else
+				echo "Input password for user $(whoami):"
 				chsh -s "$USER_ZSH" "$USER"
 			fi
 		else
@@ -30,6 +31,7 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 			if sudo -v 2>&1; then
 				sudo chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
 			else
+				echo "Input password for user $(whoami):"
 				chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
 			fi
 		fi
