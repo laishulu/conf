@@ -26,6 +26,8 @@ elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
 	export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 	BREW_PREFIX="/home/linuxbrew/.linuxbrew"
 	export BREW_PREFIX
+	chmod g-w,o-w "$BREW_PREFIX/share/zsh/site-functions"
+	chmod g-w,o-w "$BREW_PREFIX/share/zsh"
 	echo "alias brew=/home/linuxbrew/.linuxbrew/bin/brew" >~/.brew.zsh
 	echo "export BREW_PREFIX='$BREW_PREFIX'" >>~/.brew.zsh
 	function brew() {
