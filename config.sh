@@ -16,6 +16,8 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 		sudo -v 2>&1 && echo "$USER_ZSH" | sudo tee -a /etc/shells
 	fi
 
+	echo "Now set zsh as your login shell."
+
 	if grep -q "zsh" "/etc/shells"; then
 		if grep -q "$USER_ZSH" "/etc/shells"; then
 			if sudo -v 2>&1; then
