@@ -38,5 +38,11 @@ alias ec="$EC"
 alias ke="emacsclient -e '(kill-emacs)'"
 
 source $BREW_PREFIX/etc/profile.d/piknik.sh
+# piknik tmux copy
 alias pktc="tmux save-buffer - | piknik -copy"
+# piknik tmux paste
 alias pktp="piknik -paste | tmux load-buffer -"
+# piknik yank to system clipboard
+local copy_to_clipboard=$(source $TMUX_PLUGIN_MANAGER_PATH/tmux-yank/scripts/helpers.sh && clipboard_copy_command)
+local copy_to_clipboard_without_newline="tr -d '\\n' | $copy_to_clipboard"
+alias pky="piknik -paste | $copy_to_clipboard_without_newline"
