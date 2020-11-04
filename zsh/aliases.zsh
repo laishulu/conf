@@ -42,7 +42,21 @@ source $BREW_PREFIX/etc/profile.d/piknik.sh
 alias pktc="tmux save-buffer - | piknik -copy"
 # piknik tmux paste
 alias pktp="piknik -paste | tmux load-buffer -"
-# piknik yank to system clipboard
-local copy_to_clipboard=$(source ~/.tmux/plugins/tmux-yank/scripts/helpers.sh && clipboard_copy_command)
-local copy_to_clipboard_without_newline="tr -d '\\n' | $copy_to_clipboard"
-alias pky="piknik -paste | $copy_to_clipboard_without_newline"
+
+if [[ `uname` == 'Darwin' ]]; then
+	clipboard_cp_cmd() {
+		# installing reattach-to-user-namespace is recommended on OS X
+		if command_exists "pbcopy"; then
+			if command_exists "reattach-to-user-namespace"; then
+				echo "reattach-to-user-namespace pbcopy"
+			else
+				echo "pbcopy"
+			fi
+		fi
+	}
+
+	# piknik yank to system clipboard
+	local cp_to_clipboard=$(clipboard_cp_cmd)
+	local cp_to_clipboard_no_newline="tr -d '\\n' | $cp_to_clipboard"
+	alias pky="piknik -paste | $copy_to_clipboard_no_newline"
+fi
