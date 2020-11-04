@@ -46,8 +46,8 @@ alias pktp="piknik -paste | tmux load-buffer -"
 if [[ `uname` == 'Darwin' ]]; then
 	clipboard_cp_cmd() {
 		# installing reattach-to-user-namespace is recommended on OS X
-		if command_exists "pbcopy"; then
-			if command_exists "reattach-to-user-namespace"; then
+		if type "pbcopy" >/dev/null 2>&1; then
+			if type "reattach-to-user-namespace" >/dev/null 2>&1; then
 				echo "reattach-to-user-namespace pbcopy"
 			else
 				echo "pbcopy"
