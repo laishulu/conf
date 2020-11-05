@@ -57,6 +57,6 @@ if [[ `uname` == 'Darwin' ]]; then
 
 	# piknik yank to system clipboard
 	local cp_to_clipboard=$(clipboard_cp_cmd)
-	local cp_to_clipboard_no_newline="tr -d '\\n' | $cp_to_clipboard"
+	local cp_to_clipboard_no_newline="perl -pe 'chomp if eof' | $cp_to_clipboard"
 	alias pky="piknik -paste | $cp_to_clipboard_no_newline"
 fi
