@@ -35,7 +35,7 @@ if [[ $install_rs_dev == "yes" ]]; then
 	then
 		echo "rust is not installed, now installing..."
 		# for rust
-		curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path --default-toolchain default -y
+		curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path --default-toolchain stable -y
 	fi
 
 	PATH=$PATH:$HOME/.cargo/bin
