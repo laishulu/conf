@@ -3,7 +3,7 @@
 if [[ (! -d /home/linuxbrew/.linuxbrew) && $donot_install_software != "yes" ]]; then
 	echo "installing brew"
 	# suppress confirmation
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" <<EOF
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" <<EOF
 
 
 
