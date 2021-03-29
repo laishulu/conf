@@ -9,7 +9,39 @@ brew install git git-flow-avh tig
 brew install direnv
 
 # install tools
-brew install openssl@1.1
+brew install openssl
+
+install_dev="yes"
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_emacs ]; then
+	echo -n "Do you want to install emacs? (no/yes):"
+	read -r install_emacs
+fi
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_py_dev ]; then
+	echo -n "Do you want to write python3 codes? (no/yes):"
+	read -r install_py_dev
+fi
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_rs_dev ]; then
+	echo -n "Do you want to write rust codes? (no/yes):"
+	read -r install_rs_dev
+fi
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_hs_dev ]; then
+	echo -n "Do you want to write haskell codes? (no/yes):"
+	read -r install_hs_dev
+fi
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_js_dev ]; then
+	echo -n "Do you want to write javascript codes? (no/yes):"
+	read -r install_js_dev
+fi
+
+if [ "$install_dev" == "yes" ] && [ ! -v install_c_dev ]; then
+	echo -n "Do you want to write clang codes? (no/yes):"
+	read -r install_c_dev
+fi
 
 if [[ $install_emacs == "yes" ]]; then
 	source $root_dir/emacs/install.sh
