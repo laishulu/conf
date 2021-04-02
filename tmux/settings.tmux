@@ -41,3 +41,6 @@ set-option -g automatic-rename on
 
 # Terminal overrides.
 set-option -g -a terminal-overrides ',xterm-256color:Tc' # True color support.
+
+# Put status bar on top
+set-option -g status-position top
