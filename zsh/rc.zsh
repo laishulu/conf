@@ -26,11 +26,11 @@ if ! zgen saved; then
   zgen oh-my-zsh
 
   zgen load "romkatv/powerlevel10k" "powerlevel10k"
-  zgen load "zdharma/fast-syntax-highlighting"
+  zgen load "zdharma-continuum/fast-syntax-highlighting"
   zgen load "zsh-users/zsh-history-substring-search"
   zgen load "zsh-users/zsh-completions"
   zgen load "zsh-users/zsh-autosuggestions"
-  zgen load "psprint/zsh-navigation-tools"
+  zgen oh-my-zsh "plugins/zsh-navigation-tools"
   zgen load "skywind3000/z.lua"
 
   zgen oh-my-zsh "plugins/vi-mode"
