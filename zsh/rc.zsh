@@ -48,7 +48,7 @@ if ! zgen saved; then
   fi
 
   if [[ `uname` == 'Darwin' ]]; then
-    zgen oh-my-zsh "plugins/osx"
+    zgen oh-my-zsh "plugins/macos"
     zgen load "kutsan/zsh-system-clipboard"
   fi
 
