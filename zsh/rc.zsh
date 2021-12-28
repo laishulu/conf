@@ -67,7 +67,6 @@ if ! zgen saved; then
   zgen oh-my-zsh "plugins/npm"
 
   zgen oh-my-zsh "plugins/rust"
-  zgen oh-my-zsh "plugins/cargo"
 
   if type "rustup" >/dev/null 2>&1;then
   zgen oh-my-zsh "plugins/stack"
