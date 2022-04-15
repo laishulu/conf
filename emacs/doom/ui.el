@@ -7,7 +7,7 @@
 (setq-default fill-column 80)
 (add-hook! 'text-mode-hook 'auto-fill-mode)
 
-(setq doom-theme 'doom-monokai-pro)
+(setq doom-theme 'doom-one)
 
 ;; DON'T use (`font-family-list'), it's unreliable on Linux
 (when (find-font (font-spec :name "Sarasa Mono SC Nerd"))
