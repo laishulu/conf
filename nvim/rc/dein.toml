@@ -38,7 +38,7 @@ nnoremap <silent> <leader>bd :<C-u>BD<CR>
 # Start color scheme ----------------------------------------------------------
 [[plugins]]
 # color schema with best compatibility
-repo = 'phanviet/vim-monokai-pro'
+repo = 'navarasu/onedark.nvim'
 hook_add = '''
 let g:rehash256 = 1
 set background=dark
@@ -49,13 +49,13 @@ if has('nvim') && has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
   let &t_8b = "\<Esc>[38:2:%lu:%lu:%lum"
   let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
   set termguicolors
-  colorscheme monokai_pro
+  colorscheme onedark
   " as learn from test,
   " should set after colorscheme cmd
   set background=dark
 else
   set t_Co=256
-  colorscheme monokai_pro
+  colorscheme onedark
 endif
 '''
 
@@ -66,7 +66,7 @@ hook_add = '''
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
-let g:airline_theme='bubblegum'
+let g:airline_theme='onedark'
 '''
 
 [[plugins]]

@@ -82,7 +82,7 @@ fi
 # config zsh and plugins
 #==============================================
 # colored completion - use my LS_COLORS
-eval `dircolors ~/.config/dircolors/LS_COLORS`
+export LS_COLORS="$(vivid generate one-dark)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # }}}
 

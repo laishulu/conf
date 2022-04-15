@@ -64,11 +64,6 @@ if [[ $overwrite == "yes" ]] || ! [[ -e ~/.zshrc ]]; then
 	zgen update && zgen selfupdate
 fi
 
-if [[ $overwrite == "yes" ]] || ! [[ -e ~/.config/dircolors/LS_COLORS ]]; then
-	mkdir -p ~/.config/dircolors
-	ln -fs "$script_dir/misc/LS_COLORS" ~/.config/dircolors/
-fi
-
 if [[ $overwrite == "yes" ]] || ! [[ -e ~/.tmux.conf ]]; then
 	mkdir -p ~/.config/tmux
 	touch ~/.site/tmux.conf
