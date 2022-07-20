@@ -5,7 +5,7 @@
 
 (use-package! sis
   ;; should after doom-theme, or cursor color will not be retained.
-  :after (evil tmux-pane doom-theme)
+  :after (evil tmux-pane)
   :config
   (delete "C-h" sis-prefix-override-keys)
   (sis-global-respect-mode t)
