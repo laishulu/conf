@@ -8,8 +8,5 @@ then
 	brew install cmake shfmt shellcheck tig
 
 	# command line productivity
-	brew install tree fzf sk bat ripgrep fd piknik
-
-	# required by many tools
-	brew install socat
+	brew install tree fzf bat ripgrep fd piknik
 fi

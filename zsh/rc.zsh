@@ -31,7 +31,7 @@ if ! zgen saved; then
   zgen load "zsh-users/zsh-completions"
   zgen load "zsh-users/zsh-autosuggestions"
   zgen oh-my-zsh "plugins/zsh-navigation-tools"
-  zgen load "skywind3000/z.lua"
+  zgen oh-my-zsh "plugins/z"
 
   zgen oh-my-zsh "plugins/vi-mode"
   zgen oh-my-zsh "plugins/tmux"
