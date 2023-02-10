@@ -10,6 +10,7 @@
   (setq org-journal-enable-agenda-integration t))
 
 (after! org-roam
+  (setq +org-roam-auto-backlinks-buffer t)
   (setq org-roam-capture-templates
         '(("d" "default" plain (function org-roam--capture-get-point)
            "%?"
