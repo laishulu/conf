@@ -1,7 +1,7 @@
-(after! deft
+(after! (deft org-roam)
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)
-  (setq deft-directory "~/org"))
+  (setq deft-directory org-roam-directory))
 
 (after! org-journal
   (setq org-journal-date-prefix "#+TITLE: ")
