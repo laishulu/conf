@@ -1,5 +1,5 @@
 " Start kitty scrollback paper specific ---------------------------------------
-set relativenumber
+set nonumber
 set scrollback=100000
 set laststatus=0
 set ignorecase
@@ -22,6 +22,8 @@ augroup prevent_insert
     autocmd TermEnter * stopinsert
 augroup END
 
+" improve compatibility with powline icons
+set ambiwidth=single
 " turn off tabline of airline
 call airline#extensions#tabline#autoshow#off()
 " turn off trailing wihitespace warning of vim-better-whitespace
