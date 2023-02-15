@@ -1,14 +1,8 @@
+" Start kitty scrollback paper specific ---------------------------------------
 set relativenumber
-set number
-set mouse=a
-set clipboard+=unnamedplus
-set virtualedit=all
 set scrollback=100000
-set termguicolors
 set laststatus=0
-set background=dark
 set ignorecase
-set scrolloff=8
 
 map <silent> q :qa!<CR>
 
@@ -27,3 +21,6 @@ augroup prevent_insert
     autocmd!
     autocmd TermEnter * stopinsert
 augroup END
+
+call airline#extensions#tabline#autoshow#off()
+" End kitty scrollback paper specific -----------------------------------------
