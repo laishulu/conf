@@ -22,5 +22,8 @@ augroup prevent_insert
     autocmd TermEnter * stopinsert
 augroup END
 
+" turn off tabline of airline
 call airline#extensions#tabline#autoshow#off()
+" turn off trailing wihitespace warning of vim-better-whitespace
+DisableWhitespace
 " End kitty scrollback paper specific -----------------------------------------
