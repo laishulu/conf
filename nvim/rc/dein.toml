@@ -419,7 +419,9 @@ hook_add = '''
 let g:VimuxOrientation = "h"
 " the unit is percent
 let g:VimuxHeight = "25"
-
+if !executable('tmux')
+  let g:loaded_vimux = 1
+endif
 function! VimuxFocusRunner()
   call VimuxOpenRunner()
   if exists("g:VimuxRunnerIndex")
