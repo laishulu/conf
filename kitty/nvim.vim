@@ -1,5 +1,5 @@
 " Start kitty scrollback paper specific ---------------------------------------
-set nonumber
+set relativenumber
 set scrollback=100000
 set laststatus=0
 set ignorecase
