@@ -27,5 +27,5 @@ set ambiwidth=single
 " turn off tabline of airline
 call airline#extensions#tabline#autoshow#off()
 " turn off trailing wihitespace warning of vim-better-whitespace
-DisableWhitespace
+let g:better_whitespace_enabled = 0
 " End kitty scrollback paper specific -----------------------------------------
