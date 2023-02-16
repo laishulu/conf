@@ -1,4 +1,4 @@
-" Start kitty scrollback paper specific ---------------------------------------
+" Start kitty scrollback pager specific ---------------------------------------
 set nonumber
 set scrollback=100000
 set laststatus=0
@@ -26,6 +26,13 @@ augroup END
 set ambiwidth=single
 " turn off tabline of airline
 call airline#extensions#tabline#autoshow#off()
-" turn off trailing wihitespace warning of vim-better-whitespace
+" turn off trailing wihitespace
 let g:better_whitespace_enabled = 0
-" End kitty scrollback paper specific -----------------------------------------
+silent execute '%s/\n\+\%$//e'
+silent execute '%s/\s\+\%$//e'
+let line_below_last_line=line('$') + 1
+silent write! /tmp/kitty_scrollback_buffer
+silent execute "bd! /tmp/kitty_scrollback_buffer"
+te cat /tmp/kitty_scrollback_buffer -
+call feedkeys(":" . line_below_last_line . "\n")
+" End kitty scrollback pager specific -----------------------------------------
