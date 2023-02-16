@@ -12,11 +12,6 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-augroup start_at_bottom
-    autocmd!
-    autocmd VimEnter * normal G
-augroup END
-
 augroup prevent_insert
     autocmd!
     autocmd TermEnter * stopinsert
@@ -30,9 +25,9 @@ call airline#extensions#tabline#autoshow#off()
 let g:better_whitespace_enabled = 0
 silent execute '%s/\n\+\%$//e'
 silent execute '%s/\s\+\%$//e'
-let line_below_last_line=line('$') + 1
+let line_to_go=line('$')
 silent write! /tmp/kitty_scrollback_buffer
 silent execute "bd! /tmp/kitty_scrollback_buffer"
 te cat /tmp/kitty_scrollback_buffer -
-call feedkeys(":" . line_below_last_line . "\n")
+call feedkeys(":" . line_to_go . "\n")
 " End kitty scrollback pager specific -----------------------------------------
