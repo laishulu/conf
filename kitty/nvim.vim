@@ -27,6 +27,7 @@ let g:better_whitespace_enabled = 0
 " strip end of the buffer
 silent execute '%s/\n\+\%$//e'
 silent execute '%s/\s\+\%$//e'
+let line_for_cursor=line('$')
 
 " fix wrong rendering background of the last line
 let prev_line_num = prevnonblank(line('$') - 1)
@@ -38,6 +39,7 @@ te cat /tmp/kitty_scrollback_buffer -
 " Wait for cat to output everything
 sleep 200m
 normal! G
+call cursor(line_for_cursor, 1)
 " or airline will always take effect even statusline is set below
 let w:airline_disable_statusline = 1
 set laststatus=2
