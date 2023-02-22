@@ -5,6 +5,7 @@
 (blink-cursor-mode)
 (global-term-cursor-mode)
 (setq-default fill-column 80)
+(global-display-fill-column-indicator-mode t)
 (add-hook! 'text-mode-hook 'auto-fill-mode)
 
 (setq doom-theme 'doom-one)
