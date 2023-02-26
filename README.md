@@ -55,7 +55,7 @@ make install
 ```
 
 To display ZSH prompt properly, you should also install font of
-[Sarasa-Mono-SC-Nerd](https://github.com/laishulu/Sarasa-Mono-SC-Nerd/archive/master.zip),
+[Sarasa-Term-SC-Nerd](https://github.com/laishulu/Sarasa-Term-SC-Nerd),
 and set it as your terminal fonts.
 
 For MacOS, _kitty_ will also be installed and preconfigured with this font, so

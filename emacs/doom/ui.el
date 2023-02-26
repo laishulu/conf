@@ -11,11 +11,11 @@
 (setq doom-theme 'doom-one)
 
 ;; DON'T use (`font-family-list'), it's unreliable on Linux
-(when (find-font (font-spec :name "Sarasa Mono SC Nerd"))
-  (setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 16)
-        doom-variable-pitch-font (font-spec :family "Sarasa Mono SC Nerd")
-        doom-unicode-font (font-spec :family "Sarasa Mono SC Nerd")
-        doom-big-font (font-spec :family "Sarasa Mono SC Nerd" :size 20)))
+(when (find-font (font-spec :name "Sarasa Term SC Nerd"))
+  (setq doom-font (font-spec :family "Sarasa Term SC Nerd" :size 16)
+        doom-variable-pitch-font (font-spec :family "Sarasa Term SC Nerd")
+        doom-unicode-font (font-spec :family "Sarasa Term SC Nerd")
+        doom-big-font (font-spec :family "Sarasa Term SC Nerd" :size 20)))
 
 (set-display-table-slot standard-display-table
                         'vertical-border
