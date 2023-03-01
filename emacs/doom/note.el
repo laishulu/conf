@@ -1,6 +1,33 @@
+(defun cm/deft-parse-title (file contents)
+  "Parse the given FILE and CONTENTS and determine the title.
+  If `deft-use-filename-as-title' is nil, the title is taken to
+  be the first non-empty line of the FILE.  Else the base name of the FILE is
+  used as title."
+  (let ((begin (string-match "^#\\+[tT][iI][tT][lL][eE]: .*$" contents)))
+    (if begin
+        (string-trim
+         (substring contents begin (match-end 0))
+         "#\\+[tT][iI][tT][lL][eE]: *" "[\n\t ]+")
+      (deft-base-filename file))))
+
+(advice-add 'deft-parse-title :override #'cm/deft-parse-title)
+
+(setq deft-strip-summary-regexp
+      (concat "\\("
+              "[\n\t]" ;; blank
+              "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
+              "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
+              "\\)"))
+
 (after! (deft org-roam)
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)
+  (setq deft-strip-summary-regexp
+        (concat "\\("
+                "[\n\t]" ;; blank
+                "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
+                "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
+                "\\)"))
   (setq deft-directory org-roam-directory))
 
 (after! org-journal
