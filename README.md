@@ -52,6 +52,8 @@ cd
 git clone https://github.com/laishulu/conf.git <SOME_DIR>
 cd <SOME_DIR>
 make install
+# for more choice, run the following
+make
 ```
 
 To display ZSH prompt properly, you should also install font of
@@ -60,16 +62,6 @@ and set it as your terminal fonts.
 
 For MacOS, _kitty_ will also be installed and preconfigured with this font, so
 you can use _kitty_ as your terminal directly without hassle.
-
-## Post Install
-
-But if you use macos, and want to exchange keys of
-`<caps lock>` and `<esc>`, you should update optional submodules too by the
-following command:
-
-```
-make mac-optional
-```
 
 ## Cusomization
 
@@ -112,8 +104,8 @@ make mac-optional
 
 ## Important Key Maps
 
-- macos: `<capslock>` is switched with `<esc>` by _karabiner_ if
-  `macos/keymap.sh` is sourced. note: you should also run `karabiner.app`.
+- macos: if you runned `make mac-optional` after `make install`, then
+  `<capslock>` is switched with `<esc>` by _karabiner_.
 - kitty
   - `<Command + t>`: new tab
   - `<Command + w>`: close tab

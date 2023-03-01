@@ -6,6 +6,6 @@ brew install reattach-to-user-namespace
 # for fonts
 brew install fontconfig
 brew tap laishulu/cask-fonts
-brew cask install font-sarasa-nerd
+brew install --cask font-sarasa-nerd
 
-brew cask install kitty
+brew install --cask kitty

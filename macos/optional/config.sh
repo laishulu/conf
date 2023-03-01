@@ -7,7 +7,7 @@ if [[ $overwrite == "yes" ]]; then
 fi
 
 if [[ $macos_keymap = "switch" ]]; then
-	brew cask install karabiner-elements
+	brew install --cask karabiner-elements
 	if ! [[ -e ~/.config/karabiner/karabiner.json ]]; then
 		mkdir -p ~/.config/karabiner
 		ln -sf $root_dir/macos/optional/karabiner.json ~/.config/karabiner/karabiner.json
