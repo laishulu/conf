@@ -12,13 +12,6 @@
 
 (advice-add 'deft-parse-title :override #'cm/deft-parse-title)
 
-(setq deft-strip-summary-regexp
-      (concat "\\("
-              "[\n\t]" ;; blank
-              "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
-              "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
-              "\\)"))
-
 (after! (deft org-roam)
   (setq deft-recursive t)
   (setq deft-use-filter-string-for-filename t)
