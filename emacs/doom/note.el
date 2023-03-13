@@ -1,3 +1,6 @@
+(setq org-confirm-babel-evaluate t)
+(setq org-babel-no-eval-on-ctrl-c-ctrl-c t)
+
 (defun cm/deft-parse-title (file contents)
   "Parse the given FILE and CONTENTS and determine the title.
   If `deft-use-filename-as-title' is nil, the title is taken to
