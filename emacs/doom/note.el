@@ -1,5 +1,10 @@
-(setq org-confirm-babel-evaluate t)
-(setq org-babel-no-eval-on-ctrl-c-ctrl-c t)
+;; never evaul code blocks unintentionally
+(after! org
+  (setq org-confirm-babel-evaluate t)
+  (setq org-babel-no-eval-on-ctrl-c-ctrl-c t)
+  (setq org-babel-default-header-args
+        (cons '(:eval . "never")
+              (assq-delete-all :eval org-babel-default-header-args))))
 
 (defun cm/deft-parse-title (file contents)
   "Parse the given FILE and CONTENTS and determine the title.

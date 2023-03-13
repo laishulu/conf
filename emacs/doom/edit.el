@@ -1,3 +1,6 @@
+;; disable META key sequence of interpreting ESC to META
+(global-set-key [escape] 'keyboard-escape-quit)
+
 (setq confirm-kill-processes nil)
 
 (after! company
