@@ -35,7 +35,7 @@ call setline(s:prev_line_num, getline(s:prev_line_num)  . "\33[49m")
 
 silent write! /tmp/kitty_scrollback_buffer
 silent execute "bd! /tmp/kitty_scrollback_buffer"
-te cat /tmp/kitty_scrollback_buffer -
+terminal cat /tmp/kitty_scrollback_buffer -
 
 function! s:show_history(...)
     normal! G
