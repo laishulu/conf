@@ -35,6 +35,7 @@ call setline(s:prev_line_num, getline(s:prev_line_num)  . "\33[49m")
 
 silent write! /tmp/kitty_scrollback_buffer
 silent execute "bd! /tmp/kitty_scrollback_buffer"
+" if w/o additional file (stdin: -), "[Process exited 0]" will show.
 terminal cat /tmp/kitty_scrollback_buffer -
 
 function! s:show_history(...)
@@ -51,7 +52,7 @@ endfunction
 let check_finish =
             \"while pgrep -f 'cat /tmp/kitty_scrollback_buffer' > /dev/null;"
             \"do" .
-            \"    sleep 1;" .
+            \"    sleep 0.01;" .
             \"done" .
 let job_id = jobstart(
             \"sh -c" . " " . check_finish,
