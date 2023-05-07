@@ -29,20 +29,26 @@ function! ChompedSystem( ... )
     return substitute(call('system', a:000), '\n\+$', '', '')
 endfunction
 
-" Required:
-if dein#load_state('~/.config/nvim/bundle')
-  call dein#begin('~/.config/nvim/bundle')
+" Set dein base path (required)
+let s:dein_base = '~/.local/share/dein/'
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim')
+" Set dein source path (required)
+let s:dein_src = '~/.local/share/dein/repos/github.com/Shougo/dein.vim'
 
-  call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/nvim/rc/deinlazy.toml', {'lazy' : 1})
+" Set dein runtime path (required)
+execute 'set runtimepath+=' .. s:dein_src
 
-  call dein#end()
-  call dein#save_state()
-endif
+" Call dein initialization (required)
+call dein#begin(s:dein_base)
+
+call dein#add(s:dein_src)
+
+" Your plugins go here:
+call dein#load_toml('~/.config/nvim/rc/dein.toml', {'lazy': 0})
+call dein#load_toml('~/.config/nvim/rc/deinlazy.toml', {'lazy' : 1})
+
+" Finish dein initialization (required)
+call dein#end()
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
