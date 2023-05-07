@@ -91,13 +91,6 @@ if [[ $overwrite == "yes" ]] || ! [[ -e ~/.config/nvim/init.vim ]]; then
 	# for nvim
 	ln -sfn "$script_dir/nvim/nvim.vim" ~/.config/nvim/init.vim
 	ln -sfn "$script_dir/nvim/rc" ~/.config/nvim/rc
-
-	# install package manager for nvim
-	if [[ ! -d ~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/.git/ ]]; then
-		mkdir -p ~/.config/nvim/bundle/repos
-		curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >~/.config/nvim/bundle/installer.sh
-		sh ~/.config/nvim/bundle/installer.sh ~/.config/nvim/bundle
-	fi
 fi
 
 if [[ $overwrite == "yes" ]] || ! [[ -e ~/.inputrc ]]; then
