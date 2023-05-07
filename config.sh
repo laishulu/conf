@@ -23,16 +23,32 @@ if [[ $overwrite == "yes" ]] && [[ $SHELL != *zsh* ]]; then
 			if sudo -v 2>&1; then
 				sudo chsh -s "$USER_ZSH" "$USER"
 			else
-				echo "Input password for user $(whoami):"
-				chsh -s "$USER_ZSH" "$USER"
+				# try to authenticate with username as password
+				chsh -s "$USER_ZSH" "$USER" <<EOF
+$USER
+EOF
+				# Check the exit status of the command
+				if [[ $? -ne 0 ]]; then
+					# Last command failed, execute ls ls
+					echo "Input password for user $(whoami):"
+					chsh -s "$USER_ZSH" "$USER"
+				fi
 			fi
 		else
 			echo "$USER_ZSH is not in /etc/shells, now use other available zsh"
 			if sudo -v 2>&1; then
 				sudo chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
 			else
-				echo "Input password for user $(whoami):"
-				chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+				# try to authenticate with username as password
+				chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER" <<EOF
+$USER
+EOF
+				# Check the exit status of the command
+				if [[ $? -ne 0 ]]; then
+					# Last command failed, execute ls ls
+					echo "Input password for user $(whoami):"
+					chsh -s "$(tac /etc/shells | grep -m 1 zsh)" "$USER"
+				fi
 			fi
 		fi
 	else
