@@ -74,10 +74,10 @@ if [[ $install_rs_dev == "yes" ]]; then
 	export CARGO_HOME=$HOME/.cargo
 
 	rustup component add rust-src
+	rustup component add rust-docs
 	rustup component add rustfmt
 	rustup component add clippy
-	rustup component add rls
-	rustup component add rust-analysis
+	rustup component add rust-analyzer
 
 	rustup install stable
 	rustup default stable
